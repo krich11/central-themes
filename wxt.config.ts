@@ -7,8 +7,8 @@ export default defineConfig({
     name: "Central Dark",
     description:
       "Themes for Aruba Central: Central Light, Dim, Midnight, High Contrast, and native Central Dark.",
-    version: "0.1.1",
-    permissions: ["storage"],
+    version: "0.2.0",
+    permissions: ["storage", "activeTab"],
     host_permissions: [
       "https://internal-ui.central.arubanetworks.com/*",
       "https://*.central.arubanetworks.com/*",

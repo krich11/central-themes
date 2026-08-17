@@ -9,8 +9,12 @@
     <main>
       <h1>Central Dark</h1>
       <label for="theme">Theme</label>
-      <select id="theme"></select>
+      <div class="theme-row">
+        <select id="theme"></select>
+        <button type="button" id="customize">Customize</button>
+      </div>
       <p id="hint" class="hint"></p>
+      <p id="notice" class="hint notice" hidden></p>
     </main>
     <script type="module" src="./popup.ts"></script>
   </body>

@@ -5,9 +5,13 @@
 
 body {
   margin: 0;
-  min-width: 260px;
+  min-width: 390px;
+  max-width: 440px;
+  max-height: 640px;
   background: #1e1f22;
   color: #e8eaed;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 main {
@@ -35,6 +39,32 @@ select {
   border: 1px solid #3c4043;
   background: #2b2d31;
   color: inherit;
+  flex: 1;
+}
+
+.theme-row {
+  display: flex;
+  gap: 8px;
+}
+
+#customize {
+  font: inherit;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #3c4043;
+  background: #2b2d31;
+  color: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+#customize:hover:not(:disabled) {
+  background: #32343a;
+}
+
+#customize:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .hint {
@@ -42,4 +72,8 @@ select {
   font-size: 12px;
   line-height: 1.35;
   color: #9aa0a6;
+}
+
+.notice {
+  color: #f0c840;
 }

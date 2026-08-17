@@ -8,6 +8,11 @@ import {
   overlayCss,
   type ThemeId,
 } from "./themes";
+import {
+  CD_OVERRIDES_STORAGE_KEY,
+  mergeTheme,
+  type ThemeOverrides,
+} from "./palette";
 
 const STYLE_ID = "central-dark-theme-vars";
 
@@ -24,6 +29,25 @@ export function readFastTheme(): ThemeId {
 export function writeFastTheme(id: ThemeId): void {
   try {
     localStorage.setItem(CD_THEME_STORAGE_KEY, id);
+  } catch {
+    /* ignore */
+  }
+}
+
+export function readFastOverrides(): ThemeOverrides {
+  try {
+    const raw = localStorage.getItem(CD_OVERRIDES_STORAGE_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw) as ThemeOverrides;
+    return parsed && typeof parsed === "object" ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+export function writeFastOverrides(all: ThemeOverrides): void {
+  try {
+    localStorage.setItem(CD_OVERRIDES_STORAGE_KEY, JSON.stringify(all));
   } catch {
     /* ignore */
   }
@@ -69,8 +93,11 @@ export function syncNativeTheme(id: ThemeId): boolean {
   return true;
 }
 
-export function applyOverlay(id: ThemeId): void {
-  const theme = THEMES[id];
+export function applyOverlay(
+  id: ThemeId,
+  overrides?: Record<string, string> | null,
+): void {
+  const theme = mergeTheme(id, overrides);
   document.documentElement.dataset.cdTheme = id;
 
   const existing = document.getElementById(STYLE_ID);
@@ -93,8 +120,13 @@ export function applyOverlay(id: ThemeId): void {
   (document.head ?? document.documentElement).appendChild(el);
 }
 
-export function applyTheme(id: ThemeId): void {
+export function applyTheme(
+  id: ThemeId,
+  allOverrides?: ThemeOverrides | null,
+): void {
   writeFastTheme(id);
+  const overrides = allOverrides ?? readFastOverrides();
+  if (allOverrides) writeFastOverrides(allOverrides);
   if (syncNativeTheme(id)) return;
-  applyOverlay(id);
+  applyOverlay(id, overrides[id]);
 }

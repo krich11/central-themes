@@ -13,6 +13,7 @@ export const DEFAULT_THEME: ThemeId = "central-light";
 export const NATIVE_THEME_STORAGE_KEY = "cnx-ui-theme";
 export const CD_THEME_STORAGE_KEY = "cd-theme";
 export const CD_RELOAD_FLAG = "cd-theme-reload";
+export const CD_TOGGLE_CUSTOMIZER = "cd-toggle-customizer";
 
 export type ThemeKind = "native" | "overlay";
 
@@ -47,7 +48,7 @@ export const THEMES: Record<ThemeId, ThemeDefinition> = {
       "--background-default": "#a4aab4",
       "--background-front": "#c6cad1",
       "--background-back": "#a4aab4",
-      "--background-solidHover": "#bcc1c8",
+      "--background-solidHover": "#c6cad1",
       "--background-backSolidHover": "#969ca6",
       "--palette-background-default": "#a4aab4",
       "--palette-background-paper": "#c6cad1",
@@ -66,10 +67,17 @@ export const THEMES: Record<ThemeId, ThemeDefinition> = {
       "--ag-border-color": "#7a7a7a",
       "--ag-secondary-border-color": "#7a7a7a",
       "--ag-row-border-color": "#7a7a7a",
-      "--brand-hpeGreen": "#01a982",
+      "--brand-hpeGreen": "#e07500",
       "--brand-default": "#e07500",
       "--brand-arubaOrange": "#e07500",
       "--focus": "#e07500",
+      "--status-good": "#008000",
+      "--status-fair": "#ffe100",
+      "--severity-major": "#ffe100",
+      "--status-unknown": "#008000",
+      "--heatMap-good": "#008000",
+      "--heatMap-fair": "#ffe100",
+      "--cd-selected-fill": "#c6cad1",
     },
   },
   midnight: {
@@ -103,9 +111,16 @@ export const THEMES: Record<ThemeId, ThemeDefinition> = {
       "--ag-secondary-border-color": "#3c4043",
       "--ag-row-border-color": "#3c4043",
       "--brand-hpeGreen": "#1ec99a",
-      "--brand-default": "#ff9a2e",
+      "--brand-default": "#1ec99a",
       "--brand-arubaOrange": "#ff9a2e",
-      "--focus": "#ff9a2e",
+      "--focus": "#1ec99a",
+      "--status-good": "#4ad49a",
+      "--status-fair": "#f4d04c",
+      "--severity-major": "#f4d04c",
+      "--status-unknown": "#5f6368",
+      "--heatMap-good": "#5ed080",
+      "--heatMap-fair": "#f6d65a",
+      "--cd-selected-fill": "#292b2f",
     },
   },
   "high-contrast": {
@@ -139,9 +154,16 @@ export const THEMES: Record<ThemeId, ThemeDefinition> = {
       "--ag-secondary-border-color": "#333333",
       "--ag-row-border-color": "#333333",
       "--brand-hpeGreen": "#00ffc6",
-      "--brand-default": "#ffb347",
+      "--brand-default": "#00c389",
       "--brand-arubaOrange": "#ffb347",
-      "--focus": "#00ffc6",
+      "--focus": "#00c389",
+      "--status-good": "#3cb87a",
+      "--status-fair": "#f4d04c",
+      "--severity-major": "#f4d04c",
+      "--status-unknown": "#555555",
+      "--heatMap-good": "#4cba70",
+      "--heatMap-fair": "#f6d65a",
+      "--cd-selected-fill": "#101010",
     },
   },
   "central-dark": {
@@ -157,6 +179,124 @@ export function isThemeId(value: string | null | undefined): value is ThemeId {
   return THEME_IDS.includes(value as ThemeId);
 }
 
+const STATUS_OPACITY = [
+  ["0", "00"],
+  ["8", "14"],
+  ["12", "1f"],
+  ["16", "29"],
+  ["24", "3c"],
+  ["32", "52"],
+  ["40", "66"],
+  ["48", "7a"],
+  ["56", "8f"],
+  ["64", "a3"],
+  ["72", "b8"],
+  ["80", "cc"],
+  ["88", "e0"],
+  ["100", "ff"],
+] as const;
+
+function stripHash(hex: string): string {
+  return hex.replace("#", "");
+}
+
+function overlayStatusCss(theme: ThemeDefinition): string {
+  const vars = theme.vars;
+  if (!vars) return "";
+  const id = theme.id;
+  const fair = vars["--status-fair"];
+  const good = vars["--status-good"];
+  const unknown = vars["--status-unknown"];
+  const accent = vars["--brand-default"] ?? vars["--brand-hpeGreen"];
+  const selectedFill = vars["--cd-selected-fill"];
+  const extraDecls: string[] = [];
+  for (const [name, alpha] of STATUS_OPACITY) {
+    if (fair) {
+      extraDecls.push(
+        `  --opacity-status-fair-${name}: #${stripHash(fair)}${alpha};`,
+      );
+    }
+    if (good) {
+      extraDecls.push(
+        `  --opacity-status-good-${name}: #${stripHash(good)}${alpha};`,
+      );
+    }
+    if (unknown) {
+      extraDecls.push(
+        `  --opacity-status-unknown-${name}: #${stripHash(unknown)}${alpha};`,
+      );
+    }
+  }
+  const extraBlock = extraDecls.length
+    ? `html[data-cd-theme="${id}"] {\n${extraDecls.join("\n")}\n}\n`
+    : "";
+  const remaps: string[] = [];
+  if (fair) {
+    remaps.push(`html[data-cd-theme="${id}"] [fill="#ffbc44" i],
+html[data-cd-theme="${id}"] [stroke="#ffbc44" i] {
+  fill: ${fair} !important;
+  stroke: ${fair} !important;
+}
+html[data-cd-theme="${id}"] .segment-1 {
+  background-color: ${fair} !important;
+}
+html[data-cd-theme="${id}"] .brand-logo [fill="#FF8300" i],
+html[data-cd-theme="${id}"] .brand-logo [fill="#ff8300" i] {
+  fill: #FF8300 !important;
+}`);
+  }
+  if (good) {
+    remaps.push(`html[data-cd-theme="${id}"] [fill="#17eba0" i],
+html[data-cd-theme="${id}"] [stroke="#17eba0" i] {
+  fill: ${good} !important;
+  stroke: ${good} !important;
+}
+html[data-cd-theme="${id}"] .segment-2 {
+  background-color: ${good} !important;
+}`);
+  }
+  if (unknown) {
+    remaps.push(`html[data-cd-theme="${id}"] .segment-unknown,
+html[data-cd-theme="${id}"] .segment-invalid {
+  background-color: ${unknown} !important;
+}`);
+  }
+  if (accent || selectedFill) {
+    const fillRule = selectedFill
+      ? `  background-color: ${selectedFill} !important;\n`
+      : "";
+    const accentRules = accent
+      ? `  border-color: ${accent} !important;
+  border-bottom-color: ${accent} !important;
+  color: ${accent} !important;`
+      : "";
+    remaps.push(`html[data-cd-theme="${id}"] .MuiToggleButton-root.Mui-selected {
+${fillRule}${accentRules}
+}`);
+    if (accent) {
+      remaps.push(`html[data-cd-theme="${id}"] .MuiToggleButton-root.Mui-selected svg,
+html[data-cd-theme="${id}"] .MuiToggleButton-root.Mui-selected path {
+  fill: ${accent} !important;
+  color: ${accent} !important;
+}`);
+    }
+  }
+  return extraBlock + remaps.join("\n");
+}
+
+function mixTowardWhite(hex: string, amount: number): string {
+  const h = stripHash(hex);
+  if (h.length < 6) return hex;
+  const mix = (channel: number) =>
+    Math.round(channel + (255 - channel) * amount)
+      .toString(16)
+      .padStart(2, "0");
+  const r = Number.parseInt(h.slice(0, 2), 16);
+  const g = Number.parseInt(h.slice(2, 4), 16);
+  const b = Number.parseInt(h.slice(4, 6), 16);
+  return `#${mix(r)}${mix(g)}${mix(b)}`;
+}
+
 export function overlayCss(theme: ThemeDefinition): string {
   if (!theme.vars) return "";
   const decls = Object.entries(theme.vars)
@@ -169,6 +309,7 @@ export function overlayCss(theme: ThemeDefinition): string {
     theme.vars["--background-front"] ??
     bg;
   const fg = theme.vars["--text-default"] ?? "#e8eaed";
+  const tagBg = mixTowardWhite(paper, scheme === "light" ? 0.28 : 0.16);
   return `html[data-cd-theme="${theme.id}"], html[data-cd-theme="${theme.id}"] body {
   color-scheme: ${scheme};
   background-color: ${bg} !important;
@@ -181,5 +322,8 @@ html[data-cd-theme="${theme.id}"] .MuiPaper-root,
 html[data-cd-theme="${theme.id}"] .MuiCard-root {
   background-color: ${paper} !important;
 }
-`;
+html[data-cd-theme="${theme.id}"] .MuiChip-root.MuiChip-header {
+  background-color: ${tagBg} !important;
+}
+${overlayStatusCss(theme)}`;
 }
