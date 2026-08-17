@@ -2,6 +2,8 @@
 
 This page documents the extension chrome: the popup menu, the floating swatch list, and the color picker. Screenshots are of **Central Themes UI only** — not Aruba Central.
 
+Install the zip first: [Install](install.md).
+
 ## Popup menu
 
 Open the toolbar icon on any tab. The menu is the theme selector.

@@ -26,18 +26,19 @@ This project is not affiliated with HPE or Aruba.
 
 Customize is available on Dim, Midnight, and High Contrast.
 
-## Install (unpacked)
+## Install
 
-The extension is not on the Chrome Web Store yet. Load it unpacked:
+End users: download the zip from GitHub Releases. Do not clone the repo.
 
-1. Clone this repo and run `npm install`
-2. `npm run build`
-3. In Edge or Chrome, open `edge://extensions` or `chrome://extensions`
-4. Enable **Developer mode** → **Load unpacked**
-5. Choose `.output/chrome-mv3`
-6. Open Aruba Central and **refresh that tab** so the content script attaches
+**[Download 0.2.6 (Chrome / Edge zip)](https://github.com/krich11/central-themes/releases/download/v0.2.6/central-themes-0.2.6-chrome.zip)**
 
-Firefox: `npm run build:firefox`, then load `.output/firefox-mv3`.
+All versions: [Releases](https://github.com/krich11/central-themes/releases) · step-by-step: [docs/install.md](docs/install.md)
+
+1. Download `central-themes-0.2.6-chrome.zip` (that file only — not Source code)
+2. Unzip it
+3. Edge or Chrome → `edge://extensions` / `chrome://extensions` → **Developer mode** → **Load unpacked**
+4. Select the unzipped folder that contains `manifest.json`
+5. Open Aruba Central and **refresh that tab**
 
 ## Customize
 
@@ -64,12 +65,16 @@ Full walkthrough: [docs/customize.md](docs/customize.md)
 
 ## Development
 
+Build from source if you are changing the extension:
+
 ```bash
 npm install
 npm run build
 ```
 
-Source lives in `extension/`. WXT builds a Manifest V3 package to `.output/`.
+Load unpacked from `.output/chrome-mv3`. Firefox: `npm run build:firefox`, then `.output/firefox-mv3`. Zip a Chrome package with `npm run zip` and attach it to a GitHub Release.
+
+Source lives in `extension/`.
 
 ## License
 
