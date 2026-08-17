@@ -1,12 +1,12 @@
 # Central Themes
 
-Unofficial browser extension that themes [Aruba Central](https://www.arubanetworks.com/products/network-management-operations/central/) (Gravity) **without invert-filters**. Maps, photos, and charts stay in their original colors.
+Unofficial browser extension that themes [Aruba Central](https://www.arubanetworks.com/products/network-management-operations/central/).
 
 This project is not affiliated with HPE or Aruba.
 
 ![Extension popup](docs/screenshots/popup.png)
 
-## What it does
+## What it does (v0.2.6)
 
 - Five themes from a popup menu: **Central Light**, **Dim**, **Midnight**, **High Contrast**, and native **Central Dark**
 - Overlay themes sit on Central’s light UI and remap Gravity CSS variables
@@ -18,11 +18,11 @@ This project is not affiliated with HPE or Aruba.
 
 | Menu label | Behavior |
 | --- | --- |
-| **Central Light** | Stock light UI. No overlay. Sets `localStorage.cnx-ui-theme` to `light`. |
+| **Central Light** | Stock light UI. No changes. |
 | **Dim** | Gray overlay on native light. |
-| **Midnight** | Charcoal overlay. Named so it does not clash with native Central Dark. |
+| **Midnight** | Charcoal overlay. |
 | **High Contrast** | Near-black overlay. |
-| **Central Dark** | Aruba Central’s built-in dark theme (`cnx-ui-theme=dark`). Reloads once when switching to or from it. |
+| **Central Dark** | Aruba Central’s built-in dark theme. Reloads once when switching to or from it. |
 
 Customize is available on Dim, Midnight, and High Contrast.
 
