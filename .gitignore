@@ -1,0 +1,5 @@
+# Playwright MCP extension token lives in this file — do not commit.
+.cursor/mcp.json
+
+# Ephemeral Playwright MCP session logs
+.playwright-mcp/

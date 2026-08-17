@@ -1,0 +1,5400 @@
+{
+  "scannedFiles": 1178,
+  "matchingFiles": [
+    {
+      "name": "f_00a654",
+      "size": 1481167,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_00a65c",
+      "size": 911225,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_013fd0",
+      "size": 45712,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_013fd7",
+      "size": 156940,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_013fd8",
+      "size": 23272,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_013fd9",
+      "size": 126058,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_013fdd",
+      "size": 42892,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_013fdf",
+      "size": 323882,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_013fe0",
+      "size": 347058,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_013fe5",
+      "size": 38025,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_014975",
+      "size": 21787,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01526e",
+      "size": 7676777,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_015270",
+      "size": 46104,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_015271",
+      "size": 67256,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_015273",
+      "size": 78574,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_015274",
+      "size": 19435,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_015276",
+      "size": 250357,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01568b",
+      "size": 77734,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01cf4e",
+      "size": 68681,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01d00a",
+      "size": 246168,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01d04d",
+      "size": 4075479,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d05a",
+      "size": 3542972,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d05b",
+      "size": 4288624,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d05c",
+      "size": 4055178,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d076",
+      "size": 5336540,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01d087",
+      "size": 284891,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01d093",
+      "size": 284891,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01d0e5",
+      "size": 238220,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d0e9",
+      "size": 201526,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01d0eb",
+      "size": 36322,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01d0ed",
+      "size": 147552,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01d0ef",
+      "size": 19260,
+      "isCentral": true,
+      "isCss": false
+    },
+    {
+      "name": "f_01d0f0",
+      "size": 181424,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01d0f1",
+      "size": 167174,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01d0f3",
+      "size": 259328,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01d0f4",
+      "size": 618190,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01d0f5",
+      "size": 2206225,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d0f6",
+      "size": 1988553,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d102",
+      "size": 1378072,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d103",
+      "size": 19174,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01d104",
+      "size": 661299,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d107",
+      "size": 456527,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d108",
+      "size": 32525,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d10a",
+      "size": 152550,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d10c",
+      "size": 17687,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d10d",
+      "size": 18192,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d10e",
+      "size": 31906,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d10f",
+      "size": 584101,
+      "isCentral": false,
+      "isCss": true
+    },
+    {
+      "name": "f_01d118",
+      "size": 42143,
+      "isCentral": true,
+      "isCss": false
+    },
+    {
+      "name": "f_01d119",
+      "size": 3781113,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d11a",
+      "size": 3856855,
+      "isCentral": true,
+      "isCss": true
+    },
+    {
+      "name": "f_01d15d",
+      "size": 52731,
+      "isCentral": false,
+      "isCss": true
+    }
+  ],
+  "colorCount": 1209,
+  "colors": [
+    {
+      "raw": "#000",
+      "kind": "hex",
+      "count": 2011,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b"
+      ]
+    },
+    {
+      "raw": "#ffffff",
+      "kind": "hex",
+      "count": 316,
+      "files": [
+        "f_013fe0",
+        "f_01526e",
+        "f_015270",
+        "f_015271",
+        "f_015273",
+        "f_01d04d"
+      ]
+    },
+    {
+      "raw": "#292d3a",
+      "kind": "hex",
+      "count": 175,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d0f6"
+      ]
+    },
+    {
+      "raw": "#5cc8ff",
+      "kind": "hex",
+      "count": 153,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#0f1419",
+      "kind": "hex",
+      "count": 152,
+      "files": [
+        "f_014975",
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#444444",
+      "kind": "hex",
+      "count": 150,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#8b9bb4",
+      "kind": "hex",
+      "count": 128,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#fff",
+      "kind": "hex",
+      "count": 119,
+      "files": [
+        "f_00a654",
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_014975",
+        "f_015270"
+      ]
+    },
+    {
+      "raw": "#000000",
+      "kind": "hex",
+      "count": 117,
+      "files": [
+        "f_013fe0",
+        "f_01526e",
+        "f_015273",
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b"
+      ]
+    },
+    {
+      "raw": "#3e4550",
+      "kind": "hex",
+      "count": 112,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#e6e8e9",
+      "kind": "hex",
+      "count": 104,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#0000",
+      "kind": "hex",
+      "count": 87,
+      "files": [
+        "f_013fd8",
+        "f_01d10f"
+      ]
+    },
+    {
+      "raw": "#05cc93",
+      "kind": "hex",
+      "count": 87,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#b1b9be",
+      "kind": "hex",
+      "count": 80,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#e0e0e0",
+      "kind": "hex",
+      "count": 77,
+      "files": [
+        "f_013fe0",
+        "f_015270",
+        "f_015271",
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b"
+      ]
+    },
+    {
+      "raw": "#006750",
+      "kind": "hex",
+      "count": 64,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#CCCCCC",
+      "kind": "hex",
+      "count": 56,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d0f6"
+      ]
+    },
+    {
+      "raw": "#00e0af",
+      "kind": "hex",
+      "count": 56,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.20)",
+      "kind": "rgb",
+      "count": 50,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgba(255, 255, 255, 0.40)",
+      "kind": "rgb",
+      "count": 50,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#01a982",
+      "kind": "hex",
+      "count": 49,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0e5",
+        "f_01d0eb"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.04)",
+      "kind": "rgb",
+      "count": 49,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d0f6"
+      ]
+    },
+    {
+      "raw": "#606a70",
+      "kind": "hex",
+      "count": 48,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.12)",
+      "kind": "rgb",
+      "count": 48,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgba(255, 255, 255, 0.36)",
+      "kind": "rgb",
+      "count": 48,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#074738",
+      "kind": "hex",
+      "count": 40,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#0070f8",
+      "kind": "hex",
+      "count": 40,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#7d8a92",
+      "kind": "hex",
+      "count": 40,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgba(255, 255, 255, 0.06)",
+      "kind": "rgb",
+      "count": 40,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.24)",
+      "kind": "rgb",
+      "count": 40,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#999999",
+      "kind": "hex",
+      "count": 39,
+      "files": [
+        "f_01526e",
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#666666",
+      "kind": "hex",
+      "count": 39,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#009a71",
+      "kind": "hex",
+      "count": 39,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d0f4"
+      ]
+    },
+    {
+      "raw": "#160",
+      "kind": "hex",
+      "count": 37,
+      "files": [
+        "f_01568b",
+        "f_01d05a",
+        "f_01d05c",
+        "f_01d102",
+        "f_01d104",
+        "f_01d119"
+      ]
+    },
+    {
+      "raw": "#DADADA",
+      "kind": "hex",
+      "count": 36,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#f7f7f7",
+      "kind": "hex",
+      "count": 35,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#F8F8F8",
+      "kind": "hex",
+      "count": 34,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.15)",
+      "kind": "rgb",
+      "count": 33,
+      "files": [
+        "f_013fd0",
+        "f_014975",
+        "f_015270",
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b"
+      ]
+    },
+    {
+      "raw": "#555555",
+      "kind": "hex",
+      "count": 33,
+      "files": [
+        "f_01526e",
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f4"
+      ]
+    },
+    {
+      "raw": "#fc6161",
+      "kind": "hex",
+      "count": 33,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#093d32",
+      "kind": "hex",
+      "count": 32,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#068667",
+      "kind": "hex",
+      "count": 32,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#7764fc",
+      "kind": "hex",
+      "count": 32,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#1d1f27",
+      "kind": "hex",
+      "count": 31,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d0f6"
+      ]
+    },
+    {
+      "raw": "#cc1f1a",
+      "kind": "hex",
+      "count": 31,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#d36d00",
+      "kind": "hex",
+      "count": 31,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d0f4"
+      ]
+    },
+    {
+      "raw": "#ebebeb",
+      "kind": "hex",
+      "count": 31,
+      "files": [
+        "f_01d087",
+        "f_01d093",
+        "f_01d0f5",
+        "f_01d15d"
+      ]
+    },
+    {
+      "raw": "#ccc",
+      "kind": "hex",
+      "count": 30,
+      "files": [
+        "f_013fd0",
+        "f_013fe0",
+        "f_015270",
+        "f_01d087",
+        "f_01d093",
+        "f_01d0f3"
+      ]
+    },
+    {
+      "raw": "#2d3a4d",
+      "kind": "hex",
+      "count": 30,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#ddd",
+      "kind": "hex",
+      "count": 28,
+      "files": [
+        "f_013fe0",
+        "f_015270",
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "rgba(255, 255, 255, 0.5)",
+      "kind": "rgb",
+      "count": 28,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#4A4A4A",
+      "kind": "hex",
+      "count": 26,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#141414",
+      "kind": "hex",
+      "count": 26,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#9ca3af",
+      "kind": "hex",
+      "count": 25,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274",
+        "f_01d10f"
+      ]
+    },
+    {
+      "raw": "#333",
+      "kind": "hex",
+      "count": 25,
+      "files": [
+        "f_013fe0",
+        "f_014975",
+        "f_01d087",
+        "f_01d093",
+        "f_01d0e5",
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "rgba(255,255,255,0.12)",
+      "kind": "rgb",
+      "count": 25,
+      "files": [
+        "f_015270",
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb"
+      ]
+    },
+    {
+      "raw": "#1f1f1f",
+      "kind": "hex",
+      "count": 25,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#169",
+      "kind": "hex",
+      "count": 24,
+      "files": [
+        "f_01568b",
+        "f_01d05a",
+        "f_01d05c",
+        "f_01d102",
+        "f_01d104",
+        "f_01d119"
+      ]
+    },
+    {
+      "raw": "#66ebcf",
+      "kind": "hex",
+      "count": 24,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#65aef9",
+      "kind": "hex",
+      "count": 24,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#cc54a4",
+      "kind": "hex",
+      "count": 24,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#d4d8db",
+      "kind": "hex",
+      "count": 24,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#ec8c25",
+      "kind": "hex",
+      "count": 24,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#d1ffee",
+      "kind": "hex",
+      "count": 24,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#ec3331",
+      "kind": "hex",
+      "count": 24,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d0f4"
+      ]
+    },
+    {
+      "raw": "rgba(255, 255, 255, 0.24)",
+      "kind": "rgb",
+      "count": 24,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.2)",
+      "kind": "rgb",
+      "count": 23,
+      "files": [
+        "f_014975",
+        "f_015270",
+        "f_01d087",
+        "f_01d093",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#174",
+      "kind": "hex",
+      "count": 23,
+      "files": [
+        "f_01568b",
+        "f_01d05a",
+        "f_01d05c",
+        "f_01d102",
+        "f_01d104",
+        "f_01d119"
+      ]
+    },
+    {
+      "raw": "#333333",
+      "kind": "hex",
+      "count": 23,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.5)",
+      "kind": "rgb",
+      "count": 22,
+      "files": [
+        "f_013fd0",
+        "f_015270",
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c"
+      ]
+    },
+    {
+      "raw": "#e5e7eb",
+      "kind": "hex",
+      "count": 21,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015271",
+        "f_015274",
+        "f_01d10f"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0)",
+      "kind": "rgb",
+      "count": 21,
+      "files": [
+        "f_013fd0",
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d087"
+      ]
+    },
+    {
+      "raw": "#d9d9d9",
+      "kind": "hex",
+      "count": 21,
+      "files": [
+        "f_013fe0",
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "rgba(255, 255, 255, 0.1)",
+      "kind": "rgb",
+      "count": 21,
+      "files": [
+        "f_015270",
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d087"
+      ]
+    },
+    {
+      "raw": "#292929",
+      "kind": "hex",
+      "count": 21,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#f5f5f5",
+      "kind": "hex",
+      "count": 20,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fe0",
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#EDEDED",
+      "kind": "hex",
+      "count": 20,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#f0b429",
+      "kind": "hex",
+      "count": 19,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#808080",
+      "kind": "hex",
+      "count": 18,
+      "files": [
+        "f_013fe0",
+        "f_01526e",
+        "f_01d0f3"
+      ]
+    },
+    {
+      "raw": "#FFCA58",
+      "kind": "hex",
+      "count": 18,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#F9F9F9",
+      "kind": "hex",
+      "count": 18,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "rgb(59 130 246 / 0.5)",
+      "kind": "rgb",
+      "count": 18,
+      "files": [
+        "f_01d10f"
+      ]
+    },
+    {
+      "raw": "#FF7C00",
+      "kind": "hex",
+      "count": 17,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#888",
+      "kind": "hex",
+      "count": 17,
+      "files": [
+        "f_013fe0",
+        "f_015270",
+        "f_015271",
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "rgba(255,255,255,0.07)",
+      "kind": "rgb",
+      "count": 17,
+      "files": [
+        "f_015270",
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb"
+      ]
+    },
+    {
+      "raw": "#F2F2F2",
+      "kind": "hex",
+      "count": 17,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#00739D",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#BBBBBB",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#552120",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#22252e",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#2b3547",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#3c361e",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#9b84fc",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#00dbe4",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#c98ad4",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#e5786a",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#00a4b3",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#ff7b7b",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#ffecec",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#e3f1ff",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#aafade",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#fff3dd",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#003cae",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#04909d",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#6c2b7c",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#d25f4b",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#62e5f6",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#0055da",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgba(255, 255, 255, 0.72)",
+      "kind": "rgb",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.48)",
+      "kind": "rgb",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.36)",
+      "kind": "rgb",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.08)",
+      "kind": "rgb",
+      "count": 16,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#303030",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#232323",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#3A79B8",
+      "kind": "hex",
+      "count": 16,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#161",
+      "kind": "hex",
+      "count": 15,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#167",
+      "kind": "hex",
+      "count": 14,
+      "files": [
+        "f_013fe0",
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#ff0000",
+      "kind": "hex",
+      "count": 14,
+      "files": [
+        "f_01526e"
+      ]
+    },
+    {
+      "raw": "rgb(0 0 0 / 0.1)",
+      "kind": "rgb",
+      "count": 14,
+      "files": [
+        "f_015274",
+        "f_01d10f"
+      ]
+    },
+    {
+      "raw": "#FD6FFF",
+      "kind": "hex",
+      "count": 14,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#3D138D",
+      "kind": "hex",
+      "count": 14,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#717171",
+      "kind": "hex",
+      "count": 14,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#2E629D",
+      "kind": "hex",
+      "count": 14,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#a7a7a7",
+      "kind": "hex",
+      "count": 14,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#d6d6d6",
+      "kind": "hex",
+      "count": 14,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#aaa",
+      "kind": "hex",
+      "count": 13,
+      "files": [
+        "f_013fd0",
+        "f_015270",
+        "f_015273",
+        "f_01d087",
+        "f_01d093",
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#164",
+      "kind": "hex",
+      "count": 13,
+      "files": [
+        "f_013fe0",
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.7)",
+      "kind": "rgb",
+      "count": 13,
+      "files": [
+        "f_015270",
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d087"
+      ]
+    },
+    {
+      "raw": "#fafafa",
+      "kind": "hex",
+      "count": 12,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_01d0f5",
+        "f_01d10f"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.1)",
+      "kind": "rgb",
+      "count": 12,
+      "files": [
+        "f_013fd0",
+        "f_013fd7",
+        "f_015270",
+        "f_01d0f6",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgba(255, 255, 255, 0.2)",
+      "kind": "rgb",
+      "count": 12,
+      "files": [
+        "f_015270",
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb"
+      ]
+    },
+    {
+      "raw": "#162",
+      "kind": "hex",
+      "count": 12,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#163",
+      "kind": "hex",
+      "count": 12,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#165",
+      "kind": "hex",
+      "count": 12,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#166",
+      "kind": "hex",
+      "count": 12,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#168",
+      "kind": "hex",
+      "count": 12,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#170",
+      "kind": "hex",
+      "count": 12,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#AAAAAA",
+      "kind": "hex",
+      "count": 12,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#8230",
+      "kind": "hex",
+      "count": 12,
+      "files": [
+        "f_01d05a",
+        "f_01d05c",
+        "f_01d102",
+        "f_01d104",
+        "f_01d119",
+        "f_01d11a"
+      ]
+    },
+    {
+      "raw": "#f3f3f3",
+      "kind": "hex",
+      "count": 12,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#d5d5d5",
+      "kind": "hex",
+      "count": 12,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#0067b8",
+      "kind": "hex",
+      "count": 12,
+      "files": [
+        "f_01d15d"
+      ]
+    },
+    {
+      "raw": "#1f2937",
+      "kind": "hex",
+      "count": 11,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_01526e",
+        "f_015271",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#2563eb",
+      "kind": "hex",
+      "count": 11,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#444",
+      "kind": "hex",
+      "count": 11,
+      "files": [
+        "f_013fd0",
+        "f_013fe0",
+        "f_015270",
+        "f_01d087",
+        "f_01d093",
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#666",
+      "kind": "hex",
+      "count": 11,
+      "files": [
+        "f_015270",
+        "f_01d087",
+        "f_01d093",
+        "f_01d0f3",
+        "f_01d102",
+        "f_01d15d"
+      ]
+    },
+    {
+      "raw": "#A2423D",
+      "kind": "hex",
+      "count": 11,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#919191",
+      "kind": "hex",
+      "count": 11,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, .2)",
+      "kind": "rgb",
+      "count": 10,
+      "files": [
+        "f_013fd8",
+        "f_01d087",
+        "f_01d093",
+        "f_01d15d"
+      ]
+    },
+    {
+      "raw": "#bbb",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_013fe0",
+        "f_015270",
+        "f_01d087",
+        "f_01d093",
+        "f_01d0f6"
+      ]
+    },
+    {
+      "raw": "#171",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#172",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#173",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#175",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#7D4CDB",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#6FFFB0",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#81FCED",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#00873D",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#B30000",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#777777",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#33333308",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#33333310",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#FFFFFF18",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#757575",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f4",
+        "f_01d104"
+      ]
+    },
+    {
+      "raw": "rgba(221, 221, 221, 0.5)",
+      "kind": "rgb",
+      "count": 10,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgba(255, 255, 255, 0.33)",
+      "kind": "rgb",
+      "count": 10,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.33)",
+      "kind": "rgb",
+      "count": 10,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#a0a0a0",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#73DAFB",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#fcfcfc",
+      "kind": "hex",
+      "count": 10,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#999",
+      "kind": "hex",
+      "count": 9,
+      "files": [
+        "f_00a654",
+        "f_013fd0",
+        "f_013fdd",
+        "f_013fe0",
+        "f_015270",
+        "f_01d087"
+      ]
+    },
+    {
+      "raw": "#6b7280",
+      "kind": "hex",
+      "count": 9,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#a3a3a3",
+      "kind": "hex",
+      "count": 9,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#404040",
+      "kind": "hex",
+      "count": 9,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#dc2626",
+      "kind": "hex",
+      "count": 9,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#555",
+      "kind": "hex",
+      "count": 9,
+      "files": [
+        "f_013fe0",
+        "f_015273",
+        "f_01d087",
+        "f_01d093",
+        "f_01d0e5"
+      ]
+    },
+    {
+      "raw": "#EB0000",
+      "kind": "hex",
+      "count": 9,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#C27B00",
+      "kind": "hex",
+      "count": 9,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#009E67",
+      "kind": "hex",
+      "count": 9,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#7630EA",
+      "kind": "hex",
+      "count": 9,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#e3e3e3",
+      "kind": "hex",
+      "count": 9,
+      "files": [
+        "f_01d087",
+        "f_01d093",
+        "f_01d15d"
+      ]
+    },
+    {
+      "raw": "#3d3d3d",
+      "kind": "hex",
+      "count": 9,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#b8b8b8",
+      "kind": "hex",
+      "count": 9,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#f9fafb",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015271",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#f3f4f6",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_01526e",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#374151",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015271",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#b91c1c",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#777",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_013fd0",
+        "f_01d087",
+        "f_01d093",
+        "f_01d0e5"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, .1)",
+      "kind": "rgb",
+      "count": 8,
+      "files": [
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#176",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#177",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#178",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#179",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#180",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#181",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#3994f7",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#fc988b",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#c64f3a",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#b4422a",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#99f0f9",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#fc9ddc",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#db72b8",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#ad4089",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#7f245c",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#f9cc61",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#ecbe4f",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#deb146",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#c89e3a",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#b38a29",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#b0840d",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#535c66",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#a455b3",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#873492",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#5e1f68",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#b7a2fc",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#5d45d6",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#3c3aa1",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#616161",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.72)",
+      "kind": "rgb",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0eb",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgb(245, 245, 245)",
+      "kind": "rgb",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "rgb(44, 44, 44)",
+      "kind": "rgb",
+      "count": 8,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d0f5",
+        "f_01d102"
+      ]
+    },
+    {
+      "raw": "#6e6e78",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#FBFBFB",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#e34843",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#1662dd",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#e5edfb",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#eaeaea",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#7C7EF4",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#adadad",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#5c5c5c",
+      "kind": "hex",
+      "count": 8,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#d1d5db",
+      "kind": "hex",
+      "count": 7,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#4b5563",
+      "kind": "hex",
+      "count": 7,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015271",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#111827",
+      "kind": "hex",
+      "count": 7,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015271",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#fee2e2",
+      "kind": "hex",
+      "count": 7,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#ef4444",
+      "kind": "hex",
+      "count": 7,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#8b5cf6",
+      "kind": "hex",
+      "count": 7,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_015270"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.05)",
+      "kind": "rgb",
+      "count": 7,
+      "files": [
+        "f_013fd0",
+        "f_015274",
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#0b0f19",
+      "kind": "hex",
+      "count": 7,
+      "files": [
+        "f_013fd8",
+        "f_01526e",
+        "f_015271",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#222",
+      "kind": "hex",
+      "count": 7,
+      "files": [
+        "f_013fe0",
+        "f_015271",
+        "f_01d087",
+        "f_01d093",
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#e7ecf3",
+      "kind": "hex",
+      "count": 7,
+      "files": [
+        "f_014975",
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "rgba(255, 255, 255, 0.3)",
+      "kind": "rgb",
+      "count": 7,
+      "files": [
+        "f_015270"
+      ]
+    },
+    {
+      "raw": "#0071ff",
+      "kind": "hex",
+      "count": 7,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d107",
+        "f_01d119"
+      ]
+    },
+    {
+      "raw": "#fa730c",
+      "kind": "hex",
+      "count": 7,
+      "files": [
+        "f_01d04d",
+        "f_01d05a",
+        "f_01d05b",
+        "f_01d05c",
+        "f_01d107",
+        "f_01d119"
+      ]
+    },
+    {
+      "raw": "#add",
+      "kind": "hex",
+      "count": 7,
+      "files": [
+        "f_01d076",
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#c2c2c2",
+      "kind": "hex",
+      "count": 7,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#101010",
+      "kind": "hex",
+      "count": 7,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#4DB2FF",
+      "kind": "hex",
+      "count": 7,
+      "files": [
+        "f_01d15d"
+      ]
+    },
+    {
+      "raw": "#525252",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#0a0a0a",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#fef2f2",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#fecaca",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#f97316",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#eff6ff",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#dbeafe",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#bfdbfe",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#93c5fd",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#60a5fa",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#1d4ed8",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#1e40af",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#1e3a8a",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#eee",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_013fd8",
+        "f_013fe0",
+        "f_01d087",
+        "f_01d093",
+        "f_01d0f3"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, .25)",
+      "kind": "rgb",
+      "count": 6,
+      "files": [
+        "f_013fd8",
+        "f_01d15d"
+      ]
+    },
+    {
+      "raw": "#111",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_013fe0",
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#121a24",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_014975"
+      ]
+    },
+    {
+      "raw": "#1e2a3a",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#F1F1F1",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#D95252",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#5e5e5e",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#1d1d21",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#0074b3",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#4d4d4d",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#46b090",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.4)",
+      "kind": "rgb",
+      "count": 6,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#EDD063",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#7a7a7a",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#425563",
+      "kind": "hex",
+      "count": 6,
+      "files": [
+        "f_01d10f"
+      ]
+    },
+    {
+      "raw": "rgb(0, 232, 207)",
+      "kind": "rgb",
+      "count": 6,
+      "files": [
+        "f_01d10f"
+      ]
+    },
+    {
+      "raw": "#171717",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_01d15d"
+      ]
+    },
+    {
+      "raw": "#fff7ed",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#ffedd5",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#fed7aa",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#fdba74",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#fb923c",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#ea580c",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#c2410c",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#9a3412",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#7c2d12",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "#eab308",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#22c55e",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#ecfdf5",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8",
+        "f_015270"
+      ]
+    },
+    {
+      "raw": "#0ea5e9",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#3b82f6",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_015274"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.25)",
+      "kind": "rgb",
+      "count": 5,
+      "files": [
+        "f_013fd0",
+        "f_015270",
+        "f_01d15d"
+      ]
+    },
+    {
+      "raw": "#333338",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_013fe0"
+      ]
+    },
+    {
+      "raw": "#f00",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_013fe0",
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#c8c8c8",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_014975",
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#e07b00",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_015270"
+      ]
+    },
+    {
+      "raw": "#187",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#d2d2d2",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_01d087",
+        "f_01d093",
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#FF8300",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_01d0f5",
+        "f_01d0f6",
+        "f_01d104"
+      ]
+    },
+    {
+      "raw": "#00C781",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_01d0f5",
+        "f_01d102",
+        "f_01d104"
+      ]
+    },
+    {
+      "raw": "#1c1c1c",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_01d0f5",
+        "f_01d104"
+      ]
+    },
+    {
+      "raw": "#707070",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#4a6774",
+      "kind": "hex",
+      "count": 5,
+      "files": [
+        "f_01d10f"
+      ]
+    },
+    {
+      "raw": "#fca5a5",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#f87171",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#991b1b",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#7f1d1d",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#fffbeb",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#fef08a",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#fde047",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#facc15",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#ca8a04",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#a16207",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#854d0e",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#713f12",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#bbf7d0",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#86efac",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#4ade80",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#16a34a",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#15803d",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#166534",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#14532d",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "#d1fae5",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_00a65c",
+        "f_013fd7",
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.8)",
+      "kind": "rgb",
+      "count": 4,
+      "files": [
+        "f_013fd0",
+        "f_015270",
+        "f_01d102",
+        "f_01d15d"
+      ]
+    },
+    {
+      "raw": "rgba(255, 255, 255, 0.15)",
+      "kind": "rgb",
+      "count": 4,
+      "files": [
+        "f_013fd0",
+        "f_015270"
+      ]
+    },
+    {
+      "raw": "#39f",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, .06)",
+      "kind": "rgb",
+      "count": 4,
+      "files": [
+        "f_013fd8"
+      ]
+    },
+    {
+      "raw": "rgba(0, 0, 0, 0.45)",
+      "kind": "rgb",
+      "count": 4,
+      "files": [
+        "f_014975"
+      ]
+    },
+    {
+      "raw": "#182",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#183",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#184",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#185",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#186",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01568b"
+      ]
+    },
+    {
+      "raw": "#E2E2E2",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#454545",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#696952",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#285589",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#007dc1",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#4cbf9c",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#e8e8e8",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#124a94",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#8c8c96",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#cacaca",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#2f3f4a",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#1D1DC9",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#d93934",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "rgba(175, 175, 175, 0.12)",
+      "kind": "rgb",
+      "count": 4,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "rgba(175, 175, 175, 0.16)",
+      "kind": "rgb",
+      "count": 4,
+      "files": [
+        "f_01d087",
+        "f_01d093"
+      ]
+    },
+    {
+      "raw": "#FF3333",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#a8a8a8",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#111111",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#eeeeee",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d0f5",
+        "f_01d10f"
+      ]
+    },
+    {
+      "raw": "#160F1D",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#4285F4",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#231F20",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#8f8f8f",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#efefef",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d0f5",
+        "f_01d0f6"
+      ]
+    },
+    {
+      "raw": "#c7c7c7",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d0f5",
+        "f_01d15d"
+      ]
+    },
+    {
+      "raw": "#191919",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d0f5"
+      ]
+    },
+    {
+      "raw": "#0000003d",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d0f6",
+        "f_01d104"
+      ]
+    },
+    {
+      "raw": "#1973CB",
+      "kind": "hex",
+      "count": 4,
+      "files": [
+        "f_01d10f"
+      ]
+    },
+    {
+      "raw": "#f8fafc",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#f1f5f9",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#e2e8f0",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#cbd5e1",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#94a3b8",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#64748b",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#475569",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#334155",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#1e293b",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#0f172a",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#020617",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#030712",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#f4f4f5",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#e4e4e7",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#d4d4d8",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#a1a1aa",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#71717a",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#52525b",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#3f3f46",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#27272a",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#18181b",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#09090b",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#e5e5e5",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#d4d4d4",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#737373",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#262626",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#fafaf9",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#f5f5f4",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#e7e5e4",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#d6d3d1",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#a8a29e",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#78716c",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#57534e",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#44403c",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#292524",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#1c1917",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#0c0a09",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    },
+    {
+      "raw": "#450a0a",
+      "kind": "hex",
+      "count": 3,
+      "files": [
+        "f_00a65c",
+        "f_013fd7"
+      ]
+    }
+  ],
+  "cssVars": [
+    [
+      "--tw-shadow:0 0 #0000",
+      19
+    ],
+    [
+      "--tw-shadow-colored:0 0 #0000",
+      19
+    ],
+    [
+      "--tw-border-spacing-x:0",
+      18
+    ],
+    [
+      "--tw-border-spacing-y:0",
+      18
+    ],
+    [
+      "--tw-ring-offset-color:#fff",
+      18
+    ],
+    [
+      "--tw-ring-color:rgb(59 130 246 / 0.5)",
+      18
+    ],
+    [
+      "--tw-ring-offset-shadow:0 0 #0000",
+      18
+    ],
+    [
+      "--tw-ring-shadow:0 0 #0000",
+      18
+    ],
+    [
+      "--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+      5
+    ],
+    [
+      "--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color)",
+      5
+    ],
+    [
+      "--text-xxs: 9px",
+      2
+    ],
+    [
+      "--text-xs: 10px",
+      2
+    ],
+    [
+      "--text-sm: 12px",
+      2
+    ],
+    [
+      "--text-md: 14px",
+      2
+    ],
+    [
+      "--text-lg: 16px",
+      2
+    ],
+    [
+      "--text-xl: 22px",
+      2
+    ],
+    [
+      "--text-xxl: 26px",
+      2
+    ],
+    [
+      "--body-background-fill: var(--background-fill-primary)",
+      2
+    ],
+    [
+      "--body-text-size: var(--text-md)",
+      2
+    ],
+    [
+      "--body-text-weight: 400",
+      2
+    ],
+    [
+      "--color-accent: var(--primary-500)",
+      2
+    ],
+    [
+      "--body-text-color-subdued: var(--neutral-400)",
+      2
+    ],
+    [
+      "--accordion-text-color: var(--body-text-color)",
+      2
+    ],
+    [
+      "--table-text-color: var(--body-text-color)",
+      2
+    ],
+    [
+      "--shadow-drop: rgba(0,0,0,0.05) 0px 1px 2px 0px",
+      2
+    ],
+    [
+      "--shadow-drop-lg: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+      2
+    ],
+    [
+      "--shadow-inset: rgba(0,0,0,0.05) 0px 2px 4px 0px inset",
+      2
+    ],
+    [
+      "--block-border-color: var(--border-color-primary)",
+      2
+    ],
+    [
+      "--block-border-width: 1px",
+      2
+    ],
+    [
+      "--block-info-text-color: var(--body-text-color-subdued)",
+      2
+    ],
+    [
+      "--block-info-text-size: var(--text-sm)",
+      2
+    ],
+    [
+      "--block-info-text-weight: 400",
+      2
+    ],
+    [
+      "--block-label-border-color: var(--border-color-primary)",
+      2
+    ],
+    [
+      "--block-label-border-width: 1px",
+      2
+    ],
+    [
+      "--block-label-shadow: var(--block-shadow)",
+      2
+    ],
+    [
+      "--block-label-text-size: var(--text-sm)",
+      2
+    ],
+    [
+      "--block-label-text-weight: 400",
+      2
+    ],
+    [
+      "--block-shadow: var(--shadow-drop)",
+      2
+    ],
+    [
+      "--block-title-background-fill: none",
+      2
+    ],
+    [
+      "--block-title-border-color: none",
+      2
+    ],
+    [
+      "--block-title-border-width: 0px",
+      2
+    ],
+    [
+      "--block-title-text-size: var(--text-md)",
+      2
+    ],
+    [
+      "--block-title-text-weight: 400",
+      2
+    ],
+    [
+      "--panel-background-fill: var(--background-fill-secondary)",
+      2
+    ],
+    [
+      "--panel-border-color: var(--border-color-primary)",
+      2
+    ],
+    [
+      "--panel-border-width: 0",
+      2
+    ],
+    [
+      "--section-header-text-size: var(--text-md)",
+      2
+    ],
+    [
+      "--section-header-text-weight: 400",
+      2
+    ],
+    [
+      "--checkbox-background-color-focus: var(--checkbox-background-color)",
+      2
+    ],
+    [
+      "--checkbox-background-color-hover: var(--checkbox-background-color)",
+      2
+    ],
+    [
+      "--checkbox-background-color-selected: var(--secondary-600)",
+      2
+    ],
+    [
+      "--checkbox-border-color-focus: var(--secondary-500)",
+      2
+    ],
+    [
+      "--checkbox-border-color-selected: var(--secondary-600)",
+      2
+    ],
+    [
+      "--checkbox-border-radius: var(--radius-sm)",
+      2
+    ],
+    [
+      "--checkbox-border-width: var(--input-border-width)",
+      2
+    ],
+    [
+      "--checkbox-label-background-fill-selected: var(--checkbox-label-background-fill)",
+      2
+    ],
+    [
+      "--checkbox-label-border-color: var(--border-color-primary)",
+      2
+    ],
+    [
+      "--checkbox-label-border-color-hover: var(--checkbox-label-border-color)",
+      2
+    ],
+    [
+      "--checkbox-label-border-width: var(--input-border-width)",
+      2
+    ],
+    [
+      "--checkbox-label-shadow: var(--shadow-drop)",
+      2
+    ],
+    [
+      "--checkbox-label-text-size: var(--text-md)",
+      2
+    ],
+    [
+      "--checkbox-label-text-weight: 400",
+      2
+    ],
+    [
+      "--checkbox-shadow: var(--input-shadow)",
+      2
+    ],
+    [
+      "--checkbox-label-text-color: var(--body-text-color)",
+      2
+    ],
+    [
+      "--checkbox-label-text-color-selected: var(--checkbox-label-text-color)",
+      2
+    ],
+    [
+      "--error-border-width: 1px",
+      2
+    ],
+    [
+      "--input-background-fill-hover: var(--input-background-fill)",
+      2
+    ],
+    [
+      "--input-border-color: var(--border-color-primary)",
+      2
+    ],
+    [
+      "--input-border-color-hover: var(--input-border-color)",
+      2
+    ],
+    [
+      "--input-border-width: 1px",
+      2
+    ],
+    [
+      "--input-shadow: 0 0 0 var(--shadow-spread) transparent, var(--shadow-inset)",
+      2
+    ],
+    [
+      "--input-text-size: var(--text-md)",
+      2
+    ],
+    [
+      "--input-text-weight: 400",
+      2
+    ],
+    [
+      "--loader-color: var(--color-accent)",
+      2
+    ],
+    [
+      "--prose-text-size: var(--text-md)",
+      2
+    ],
+    [
+      "--prose-text-weight: 400",
+      2
+    ],
+    [
+      "--prose-header-text-weight: 600",
+      2
+    ],
+    [
+      "--slider-color: #2563eb",
+      2
+    ],
+    [
+      "--button-border-width: var(--input-border-width)",
+      2
+    ],
+    [
+      "--button-cancel-border-color-hover: var(--button-cancel-border-color)",
+      2
+    ],
+    [
+      "--button-cancel-text-color-hover: var(--button-cancel-text-color)",
+      2
+    ],
+    [
+      "--button-large-text-size: var(--text-lg)",
+      2
+    ],
+    [
+      "--button-large-text-weight: 600",
+      2
+    ],
+    [
+      "--button-primary-border-color-hover: var(--button-primary-border-color)",
+      2
+    ],
+    [
+      "--button-primary-text-color-hover: var(--button-primary-text-color)",
+      2
+    ],
+    [
+      "--button-secondary-border-color-hover: var(--button-secondary-border-color)",
+      2
+    ],
+    [
+      "--button-secondary-text-color-hover: var(--button-secondary-text-color)",
+      2
+    ],
+    [
+      "--button-shadow: var(--shadow-drop)",
+      2
+    ],
+    [
+      "--button-shadow-active: var(--shadow-inset)",
+      2
+    ],
+    [
+      "--button-shadow-hover: var(--shadow-drop-lg)",
+      2
+    ],
+    [
+      "--button-small-text-size: var(--text-md)",
+      2
+    ],
+    [
+      "--button-small-text-weight: 400",
+      2
+    ],
+    [
+      "--altcha-color-base: #fff",
+      2
+    ],
+    [
+      "--altcha-color-text: #000",
+      2
+    ],
+    [
+      "--block-border-width:0",
+      1
+    ],
+    [
+      "--section-header-text-size: 12pt",
+      1
+    ],
+    [
+      "--block-background-fill: transparent",
+      1
+    ],
+    [
+      "--search-text::placeholder {\r\n    color: var(--input-placeholder-color)",
+      1
+    ],
+    [
+      "--search-text::-webkit-search-cancel-button {\r\n    -webkit-appearance: none",
+      1
+    ],
+    [
+      "--tw-shadow: 0 0 #0000",
+      1
+    ],
+    [
+      "--shadow-xs: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06)",
+      1
+    ],
+    [
+      "--shadow-sm: 0 4px 6px -2px rgba(0, 0, 0, .1), 0 2px 4px -2px rgba(0, 0, 0, .06)",
+      1
+    ],
+    [
+      "--shadow-md: 0 12px 16px -4px rgba(0, 0, 0, .1), 0 4px 6px -2px rgba(0, 0, 0, .05)",
+      1
+    ],
+    [
+      "--shadow-lg: 0 20px 24px -4px rgba(0, 0, 0, .1), 0 8px 8px -4px rgba(0, 0, 0, .04)",
+      1
+    ],
+    [
+      "--shadow-xl: 0 24px 48px -12px rgba(0, 0, 0, .25)",
+      1
+    ],
+    [
+      "--color-grey-50: #f9fafb",
+      1
+    ],
+    [
+      "--color-grey-100: #f3f4f6",
+      1
+    ],
+    [
+      "--color-grey-200: #e5e7eb",
+      1
+    ],
+    [
+      "--color-grey-300: #d1d5db",
+      1
+    ],
+    [
+      "--color-grey-400: #9ca3af",
+      1
+    ],
+    [
+      "--color-grey-500: #6b7280",
+      1
+    ],
+    [
+      "--color-grey-600: #4b5563",
+      1
+    ],
+    [
+      "--color-grey-700: #374151",
+      1
+    ],
+    [
+      "--color-grey-800: #1f2937",
+      1
+    ],
+    [
+      "--color-grey-900: #111827",
+      1
+    ],
+    [
+      "--color-black: #14141b",
+      1
+    ],
+    [
+      "--color-grey: #6b7280",
+      1
+    ],
+    [
+      "--color-red-300: #fca5a5",
+      1
+    ],
+    [
+      "--color-red-500: #ef4444",
+      1
+    ],
+    [
+      "--color-red-700: #b91c1c",
+      1
+    ],
+    [
+      "--color-red: #ef4444",
+      1
+    ],
+    [
+      "--color-green-300: #86efac",
+      1
+    ],
+    [
+      "--color-green-500: #22c55e",
+      1
+    ],
+    [
+      "--color-green-700: #15803d",
+      1
+    ],
+    [
+      "--color-green: #22c55e",
+      1
+    ],
+    [
+      "--color-blue-300: #93c5fd",
+      1
+    ],
+    [
+      "--color-blue-500: #0ea5e9",
+      1
+    ],
+    [
+      "--color-blue-700: #1d4ed8",
+      1
+    ],
+    [
+      "--color-blue: #0ea5e9",
+      1
+    ],
+    [
+      "--color-pink-300: #fbb6ce",
+      1
+    ],
+    [
+      "--color-pink-500: #ed64a6",
+      1
+    ],
+    [
+      "--color-pink-700: #d53f8c",
+      1
+    ],
+    [
+      "--color-pink: var(--color-pink-500)",
+      1
+    ],
+    [
+      "--color-purple-300: #b794f4",
+      1
+    ],
+    [
+      "--color-purple-500: #805ad5",
+      1
+    ],
+    [
+      "--color-purple-700: #6b46c1",
+      1
+    ],
+    [
+      "--color-purple: var(--color-purple-500)",
+      1
+    ],
+    [
+      "--color-teal-300: #81e6d9",
+      1
+    ],
+    [
+      "--color-teal-500: #38b2ac",
+      1
+    ],
+    [
+      "--color-teal-700: #2c7a7b",
+      1
+    ],
+    [
+      "--color-teal: var(--color-teal-500)",
+      1
+    ],
+    [
+      "--color-yellow-300: #fde047",
+      1
+    ],
+    [
+      "--color-yellow-500: #eab308",
+      1
+    ],
+    [
+      "--color-yellow-700: #a16207",
+      1
+    ],
+    [
+      "--color-yellow: #eab308",
+      1
+    ],
+    [
+      "--color-orange-300: #ffb066",
+      1
+    ],
+    [
+      "--color-orange-500: #ff7c00",
+      1
+    ],
+    [
+      "--color-orange-700: #ce6400",
+      1
+    ],
+    [
+      "--color-orange: #f97316",
+      1
+    ],
+    [
+      "--color-brown-300: #a1887f",
+      1
+    ],
+    [
+      "--color-brown-500: #795548",
+      1
+    ],
+    [
+      "--color-brown-700: #5d4037",
+      1
+    ],
+    [
+      "--color-brown: var(--color-brown-500)",
+      1
+    ],
+    [
+      "--color-blue-10: #fafcff",
+      1
+    ],
+    [
+      "--color-blue-50: #eff6ff",
+      1
+    ],
+    [
+      "--color-blue-100: #dbeafe",
+      1
+    ],
+    [
+      "--color-blue-200: #bfdbfe",
+      1
+    ],
+    [
+      "--color-blue-400: #60a5fa",
+      1
+    ],
+    [
+      "--color-blue-600: #2563eb",
+      1
+    ],
+    [
+      "--color-blue-800: #1e40af",
+      1
+    ],
+    [
+      "--color-blue-900: #1e3a8a",
+      1
+    ],
+    [
+      "--color-blue-950: #1c366b",
+      1
+    ],
+    [
+      "--color-grey-10: #fdfdfe",
+      1
+    ],
+    [
+      "--color-grey-950: #0b0f19",
+      1
+    ],
+    [
+      "--color-red-10: #fffbfb",
+      1
+    ],
+    [
+      "--color-red-50: #fef2f2",
+      1
+    ],
+    [
+      "--color-red-100: #fee2e2",
+      1
+    ],
+    [
+      "--color-red-200: #fecaca",
+      1
+    ],
+    [
+      "--color-red-400: #f87171",
+      1
+    ],
+    [
+      "--color-red-600: #dc2626",
+      1
+    ],
+    [
+      "--color-red-800: #991b1b",
+      1
+    ],
+    [
+      "--color-red-900: #7f1d1d",
+      1
+    ],
+    [
+      "--color-red-950: #63171a",
+      1
+    ],
+    [
+      "--color-green-10: #f9fefc",
+      1
+    ],
+    [
+      "--color-green-50: #ecfdf5",
+      1
+    ],
+    [
+      "--color-green-100: #d1fae5",
+      1
+    ],
+    [
+      "--color-green-200: #bbf7d0",
+      1
+    ],
+    [
+      "--color-green-400: #4ade80",
+      1
+    ],
+    [
+      "--color-green-600: #16a34a",
+      1
+    ],
+    [
+      "--color-green-800: #166534",
+      1
+    ],
+    [
+      "--color-green-900: #14532d",
+      1
+    ],
+    [
+      "--color-green-950: #134227",
+      1
+    ],
+    [
+      "--color-orange-10: #fffbf6",
+      1
+    ],
+    [
+      "--color-orange-50: #fff2e5",
+      1
+    ],
+    [
+      "--color-orange-100: #ffe5cc",
+      1
+    ],
+    [
+      "--color-orange-200: #ffd8b4",
+      1
+    ],
+    [
+      "--color-orange-400: #ff9633",
+      1
+    ],
+    [
+      "--color-orange-600: #ee7400",
+      1
+    ],
+    [
+      "--color-orange-800: #a45000",
+      1
+    ],
+    [
+      "--color-orange-900: #5c2d00",
+      1
+    ],
+    [
+      "--color-orange-950: #3c1f00",
+      1
+    ],
+    [
+      "--color-yellow-10: #fffef8",
+      1
+    ],
+    [
+      "--color-yellow-50: #fffbeb",
+      1
+    ],
+    [
+      "--color-yellow-100: #fff9c2",
+      1
+    ],
+    [
+      "--color-yellow-200: #fef08a",
+      1
+    ],
+    [
+      "--color-yellow-400: #facc15",
+      1
+    ],
+    [
+      "--color-yellow-600: #ca8a04",
+      1
+    ],
+    [
+      "--color-yellow-800: #854d0e",
+      1
+    ],
+    [
+      "--color-yellow-900: #713f12",
+      1
+    ],
+    [
+      "--color-yellow-950: #633112",
+      1
+    ]
+  ]
+}
