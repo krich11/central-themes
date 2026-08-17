@@ -76,6 +76,10 @@ Load unpacked from `.output/chrome-mv3`. Firefox: `npm run build:firefox`, then 
 
 Source lives in `extension/`.
 
+## Issues
+
+Support is **best-effort**. If something is broken or looks wrong, [open a GitHub issue](https://github.com/krich11/central-themes/issues). Include the theme you were using, the Central page you were on, and what you expected.
+
 ## License
 
 [MIT](LICENSE)
