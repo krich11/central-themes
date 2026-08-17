@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Central Themes UI preview</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #5c6370;
+        font-family: "Segoe UI", system-ui, sans-serif;
+      }
+      .stage {
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 48px;
+        width: max-content;
+      }
+
+      /* Popup */
+      #shot-popup {
+        color-scheme: dark;
+        margin: 0;
+        width: 390px;
+        background: #1e1f22;
+        color: #e8eaed;
+        border-radius: 8px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+      }
+      #shot-popup main {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 14px 16px 16px;
+      }
+      #shot-popup h1 {
+        margin: 0 0 4px;
+        font-size: 15px;
+        font-weight: 650;
+      }
+      #shot-popup label {
+        font-size: 12px;
+        color: #9aa0a6;
+      }
+      #shot-popup select {
+        font: inherit;
+        padding: 6px 8px;
+        border-radius: 6px;
+        border: 1px solid #3c4043;
+        background: #2b2d31;
+        color: inherit;
+        flex: 1;
+      }
+      #shot-popup .theme-row {
+        display: flex;
+        gap: 8px;
+      }
+      #shot-popup button {
+        font: inherit;
+        padding: 6px 10px;
+        border-radius: 6px;
+        border: 1px solid #3c4043;
+        background: #2b2d31;
+        color: inherit;
+        white-space: nowrap;
+      }
+      #shot-popup .hint {
+        margin: 4px 0 0;
+        font-size: 12px;
+        line-height: 1.35;
+        color: #9aa0a6;
+      }
+
+      /* Customizer card */
+      #shot-swatches {
+        width: 390px;
+        background: #1e1f22;
+        border: 1px solid #5f6368;
+        border-radius: 10px;
+        padding: 12px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+        box-sizing: border-box;
+      }
+      .cd-customizer {
+        font: 12px/1.35 Segoe UI, system-ui, sans-serif;
+        color: #e8eaed;
+      }
+      .cd-customizer h2 {
+        margin: 0;
+        font-size: 13px;
+        font-weight: 650;
+      }
+      .cd-customizer-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+      .cd-customizer-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+      .cd-customizer button {
+        font: inherit;
+        color: inherit;
+        background: #2b2d31;
+        border: 1px solid #3c4043;
+        border-radius: 6px;
+        padding: 4px 8px;
+      }
+      .cd-customizer-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .cd-row {
+        display: grid;
+        grid-template-columns: 1fr auto 76px;
+        gap: 8px;
+        align-items: center;
+      }
+      .cd-row span {
+        color: #c4c7cc;
+      }
+      .cd-swatch {
+        width: 28px;
+        height: 22px;
+        border: 1px solid #5f6368;
+        border-radius: 4px;
+        padding: 0;
+      }
+      .cd-hex {
+        font: 11px/1.2 ui-monospace, Consolas, monospace;
+        width: 76px;
+        box-sizing: border-box;
+        padding: 4px 6px;
+        border-radius: 4px;
+        border: 1px solid #3c4043;
+        background: #1e1f22;
+        color: inherit;
+      }
+      .cd-note {
+        margin: 8px 0 0;
+        color: #9aa0a6;
+      }
+
+      /* Color picker */
+      .cd-popover {
+        width: 220px;
+        padding: 8px;
+        background: #2b2d31;
+        border: 1px solid #5f6368;
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        font: 12px/1.35 Segoe UI, system-ui, sans-serif;
+        color: #e8eaed;
+        box-sizing: border-box;
+      }
+      .cd-picker-title {
+        margin: 0 0 8px;
+        font-size: 12px;
+        font-weight: 650;
+      }
+      .cd-picker-tabs {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 8px;
+      }
+      .cd-picker-tabs button {
+        flex: 1;
+        padding: 4px 6px;
+        font: inherit;
+        color: inherit;
+        background: #2b2d31;
+        border: 1px solid #3c4043;
+        border-radius: 6px;
+      }
+      .cd-picker-tabs button.cd-tab-active {
+        background: #3c4043;
+        border-color: #9aa0a6;
+      }
+      .cd-palette {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .cd-palette-label {
+        margin: 0 0 4px;
+        color: #9aa0a6;
+        font-size: 11px;
+      }
+      .cd-palette-grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 3px;
+      }
+      .cd-palette-chip {
+        width: 100%;
+        aspect-ratio: 1;
+        border: 1px solid #5f6368;
+        border-radius: 3px;
+        padding: 0;
+      }
+      .cd-palette-chip.cd-chip-active {
+        outline: 2px solid #e8eaed;
+        outline-offset: 1px;
+      }
+      .cd-sv {
+        position: relative;
+        width: 100%;
+        height: 120px;
+        border-radius: 4px;
+        background: #1ec99a;
+      }
+      .cd-sv-white,
+      .cd-sv-black {
+        position: absolute;
+        inset: 0;
+        border-radius: 4px;
+      }
+      .cd-sv-white {
+        background: linear-gradient(to right, #fff, transparent);
+      }
+      .cd-sv-black {
+        background: linear-gradient(to top, #000, transparent);
+      }
+      .cd-sv-thumb {
+        position: absolute;
+        left: 72%;
+        top: 18%;
+        width: 10px;
+        height: 10px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px #000;
+        transform: translate(-50%, -50%);
+      }
+      .cd-hue {
+        width: 100%;
+        margin: 8px 0 0;
+        accent-color: #01a982;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <div id="shot-popup">
+        <main>
+          <h1>Central Themes</h1>
+          <label for="theme">Theme</label>
+          <div class="theme-row">
+            <select id="theme">
+              <option>Central Light</option>
+              <option>Dim</option>
+              <option selected>Midnight</option>
+              <option>High Contrast</option>
+              <option>Central Dark</option>
+            </select>
+            <button type="button">Customize</button>
+          </div>
+          <p class="hint">
+            Charcoal overlay. Not native Central Dark. Customize opens a floating
+            card on Aruba Central.
+          </p>
+        </main>
+      </div>
+
+      <div id="shot-swatches">
+        <div class="cd-customizer">
+          <div class="cd-customizer-head">
+            <h2>Customize Midnight</h2>
+            <div class="cd-customizer-actions">
+              <button type="button">Reset</button>
+              <button type="button">Select</button>
+              <button type="button">Done</button>
+            </div>
+          </div>
+          <div class="cd-customizer-list" id="swatch-list"></div>
+          <p class="cd-note">
+            Changes apply live on this page. Drag the header to move. Select:
+            click a control to open its swatch. Esc cancels.
+          </p>
+        </div>
+      </div>
+
+      <div id="shot-picker-palette" class="cd-popover">
+        <p class="cd-picker-title">Nav icons</p>
+        <div class="cd-picker-tabs">
+          <button type="button" class="cd-tab-active">Palette</button>
+          <button type="button">Wheel</button>
+        </div>
+        <div class="cd-palette" id="palette-body"></div>
+      </div>
+
+      <div id="shot-picker-wheel" class="cd-popover">
+        <p class="cd-picker-title">Nav icons</p>
+        <div class="cd-picker-tabs">
+          <button type="button">Palette</button>
+          <button type="button" class="cd-tab-active">Wheel</button>
+        </div>
+        <div class="cd-sv">
+          <div class="cd-sv-white">
+            <div class="cd-sv-black">
+              <div class="cd-sv-thumb"></div>
+            </div>
+          </div>
+        </div>
+        <input class="cd-hue" type="range" min="0" max="360" value="162" />
+      </div>
+    </div>
+    <script>
+      const rows = [
+        ["Page", "#1e1f22"],
+        ["Cards", "#1e1f22"],
+        ["Hover", "#32343a"],
+        ["Hover (back)", "#3a3d44"],
+        ["Text", "#d6d9df"],
+        ["Text 2", "#9aa0a6"],
+        ["Nav icons", "#c6cad1"],
+        ["Text strong", "#c6cad1"],
+        ["Text muted", "#9aa0a6"],
+        ["Text disabled", "#80868b"],
+        ["Border", "#3c4043"],
+        ["Border strong", "#5f6368"],
+        ["Border weak", "#2a2a2a"],
+        ["HPE green / accent", "#1ec99a"],
+        ["Selected fill", "#292b2f"],
+        ["Aruba orange", "#ff9a2e"],
+        ["Status good", "#4ad49a"],
+        ["Status delayed", "#f4d04c"],
+        ["Status unknown", "#5f6368"],
+        ["Heatmap good", "#5ed080"],
+        ["Heatmap delayed", "#f6d65a"],
+      ];
+      const list = document.getElementById("swatch-list");
+      for (const [label, hex] of rows) {
+        const row = document.createElement("div");
+        row.className = "cd-row";
+        row.innerHTML = `<span>${label}</span><button class="cd-swatch" style="background:${hex}"></button><input class="cd-hex" value="${hex}" readonly />`;
+        list.append(row);
+      }
+
+      const groups = [
+        {
+          label: "Neutrals",
+          colors: [
+            "#ffffff", "#f5f5f5", "#e8eaed", "#d6d9df", "#c6cad1", "#a4aab4",
+            "#9aa0a6", "#80868b", "#5f6368", "#3c4043", "#2a2a2a", "#1e1f22",
+            "#111111", "#000000", "#bcc1c8", "#969ca6",
+          ],
+        },
+        {
+          label: "Brand",
+          colors: [
+            "#01a982", "#01ce9e", "#00c389", "#1ec99a", "#e07500", "#ff8300",
+            "#ff9a2e", "#000000",
+          ],
+        },
+        {
+          label: "Status",
+          colors: [
+            "#42c98c", "#17eba0", "#2e8b57", "#f0c840", "#ffbc44", "#e07500",
+            "#d93025", "#cccccc", "#1a73e8",
+          ],
+        },
+        {
+          label: "Standard",
+          colors: [
+            "#800000", "#ff0000", "#ffc0cb", "#ffa500", "#ffff00", "#008000",
+            "#00ff00", "#00ffff", "#000080", "#0000ff", "#800080", "#ff00ff",
+            "#a52a2a", "#f4c430", "#4b0082", "#808000",
+          ],
+        },
+      ];
+      const palette = document.getElementById("palette-body");
+      for (const group of groups) {
+        const wrap = document.createElement("div");
+        const p = document.createElement("p");
+        p.className = "cd-palette-label";
+        p.textContent = group.label;
+        const grid = document.createElement("div");
+        grid.className = "cd-palette-grid";
+        for (const hex of group.colors) {
+          const chip = document.createElement("button");
+          chip.className = "cd-palette-chip";
+          if (hex === "#c6cad1") chip.classList.add("cd-chip-active");
+          chip.style.background = hex;
+          grid.append(chip);
+        }
+        wrap.append(p, grid);
+        palette.append(wrap);
+      }
+    </script>
+  </body>
+</html>
