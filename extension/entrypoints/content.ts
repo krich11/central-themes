@@ -65,22 +65,32 @@ function startEyedrop(handle: CustomizerHandle, themeId: ThemeId) {
     highlight.style.height = `${box.height}px`;
   };
 
-  const onDown = (event: PointerEvent) => {
+  const swallow = (event: Event) => {
     const path = event.composedPath();
     if (path.some((node) => node instanceof Element && node.id === HOST_ID)) {
-      return;
+      return false;
     }
     event.preventDefault();
     event.stopPropagation();
+    event.stopImmediatePropagation();
+    return true;
+  };
+
+  const onDown = (event: PointerEvent) => {
+    if (!swallow(event)) return;
     highlight.style.display = "none";
     const el = document.elementFromPoint(event.clientX, event.clientY);
     void (async () => {
       const all = await overrideStorage.getValue();
       const vars = mergeTheme(themeId, overridesFor(all, themeId)).vars ?? {};
       const field = el ? matchOverlayField(el, vars) : null;
-      stopEyedrop(handle);
       if (field) handle.openField(field.id);
     })();
+  };
+
+  const onClick = (event: Event) => {
+    if (!swallow(event)) return;
+    stopEyedrop(handle);
   };
 
   const onKey = (event: KeyboardEvent) => {
@@ -89,12 +99,18 @@ function startEyedrop(handle: CustomizerHandle, themeId: ThemeId) {
 
   document.addEventListener("pointermove", onMove, true);
   document.addEventListener("pointerdown", onDown, true);
+  document.addEventListener("pointerup", swallow, true);
+  document.addEventListener("click", onClick, true);
+  document.addEventListener("auxclick", swallow, true);
   document.addEventListener("keydown", onKey, true);
   eyedropStop = () => {
     highlight.remove();
     document.body.style.cursor = "";
     document.removeEventListener("pointermove", onMove, true);
     document.removeEventListener("pointerdown", onDown, true);
+    document.removeEventListener("pointerup", swallow, true);
+    document.removeEventListener("click", onClick, true);
+    document.removeEventListener("auxclick", swallow, true);
     document.removeEventListener("keydown", onKey, true);
   };
 }

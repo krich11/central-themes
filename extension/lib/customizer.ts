@@ -94,6 +94,15 @@ export const CUSTOMIZER_CSS = `
   box-shadow: 0 8px 24px rgba(0,0,0,.4);
   overflow: visible;
 }
+.cd-picker-title {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 650;
+  color: #e8eaed;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .cd-picker-tabs {
   display: flex;
   gap: 4px;
@@ -275,6 +284,7 @@ const PALETTE_GROUPS: { label: string; colors: string[] }[] = [
 function openPicker(
   anchor: HTMLButtonElement,
   host: HTMLElement,
+  fieldLabel: string,
   onPick: (hex: string) => void,
 ) {
   host.querySelector(".cd-popover")?.remove();
@@ -283,6 +293,10 @@ function openPicker(
   let current = start;
   const pop = document.createElement("div");
   pop.className = "cd-popover";
+  const title = document.createElement("p");
+  title.className = "cd-picker-title";
+  title.textContent = fieldLabel;
+  title.title = fieldLabel;
 
   const tabs = document.createElement("div");
   tabs.className = "cd-picker-tabs";
@@ -345,7 +359,7 @@ function openPicker(
   hue.value = String(Math.round(hsv.h));
   wheelPanel.append(sv, hue);
 
-  pop.append(tabs, palettePanel, wheelPanel);
+  pop.append(title, tabs, palettePanel, wheelPanel);
 
   const showTab = (tab: PickerTab) => {
     lastPickerTab = tab;
@@ -561,7 +575,7 @@ export function mountCustomizer(
     hex.spellcheck = false;
     hex.maxLength = 7;
     swatch.addEventListener("click", () => {
-      openPicker(swatch, root, (value) => commitField(field, value));
+      openPicker(swatch, root, field.label, (value) => commitField(field, value));
     });
     hex.addEventListener("change", () => {
       const value = hex.value.startsWith("#") ? hex.value : `#${hex.value}`;
@@ -599,7 +613,9 @@ export function mountCustomizer(
       const pair = controls.get(fieldId);
       if (!field || !pair) return;
       pair.swatch.scrollIntoView({ block: "nearest" });
-      openPicker(pair.swatch, root, (value) => commitField(field, value));
+      openPicker(pair.swatch, root, field.label, (value) =>
+        commitField(field, value),
+      );
     },
     setEyedropActive: (active: boolean) => {
       eyedrop.classList.toggle("cd-eyedrop-on", active);

@@ -59,7 +59,7 @@ export const THEMES: Record<ThemeId, ThemeDefinition> = {
       "--text-readonly": "#4a4a4a",
       "--text-weak": "#5c5c5c",
       "--palette-text-primary": "#2a2a2a",
-      "--palette-text-secondary": "#2a2a2a",
+      "--palette-text-secondary": "#444444",
       "--palette-text-disabled": "#6e6e6e",
       "--border-default": "#7a7a7a",
       "--border-strong": "#5a5a5a",
@@ -78,6 +78,7 @@ export const THEMES: Record<ThemeId, ThemeDefinition> = {
       "--heatMap-good": "#008000",
       "--heatMap-fair": "#ffe100",
       "--cd-selected-fill": "#c6cad1",
+      "--cd-icon-fill": "#000000",
     },
   },
   midnight: {
@@ -97,12 +98,12 @@ export const THEMES: Record<ThemeId, ThemeDefinition> = {
       "--palette-background-paper": "#2b2d31",
       "--ag-background-color": "#1e1f22",
       "--ag-header-background-color": "#2b2d31",
-      "--text-default": "#e8eaed",
-      "--text-strong": "#ffffff",
+      "--text-default": "#d6d9df",
+      "--text-strong": "#c6cad1",
       "--text-readonly": "#9aa0a6",
       "--text-weak": "#9aa0a6",
-      "--palette-text-primary": "#e8eaed",
-      "--palette-text-secondary": "#c4c7cc",
+      "--palette-text-primary": "#d6d9df",
+      "--palette-text-secondary": "#9aa0a6",
       "--palette-text-disabled": "#80868b",
       "--border-default": "#3c4043",
       "--border-strong": "#5f6368",
@@ -121,6 +122,7 @@ export const THEMES: Record<ThemeId, ThemeDefinition> = {
       "--heatMap-good": "#5ed080",
       "--heatMap-fair": "#f6d65a",
       "--cd-selected-fill": "#292b2f",
+      "--cd-icon-fill": "#c6cad1",
     },
   },
   "high-contrast": {
@@ -140,12 +142,12 @@ export const THEMES: Record<ThemeId, ThemeDefinition> = {
       "--palette-background-paper": "#111111",
       "--ag-background-color": "#0a0a0a",
       "--ag-header-background-color": "#111111",
-      "--text-default": "#f5f5f5",
+      "--text-default": "#d6d9df",
       "--text-strong": "#ffffff",
       "--text-readonly": "#c8c8c8",
       "--text-weak": "#c8c8c8",
-      "--palette-text-primary": "#f5f5f5",
-      "--palette-text-secondary": "#e0e0e0",
+      "--palette-text-primary": "#d6d9df",
+      "--palette-text-secondary": "#c6cad1",
       "--palette-text-disabled": "#888888",
       "--border-default": "#333333",
       "--border-strong": "#555555",
@@ -153,10 +155,10 @@ export const THEMES: Record<ThemeId, ThemeDefinition> = {
       "--ag-border-color": "#333333",
       "--ag-secondary-border-color": "#333333",
       "--ag-row-border-color": "#333333",
-      "--brand-hpeGreen": "#00ffc6",
-      "--brand-default": "#00c389",
+      "--brand-hpeGreen": "#ff8300",
+      "--brand-default": "#ff8300",
       "--brand-arubaOrange": "#ffb347",
-      "--focus": "#00c389",
+      "--focus": "#ff8300",
       "--status-good": "#3cb87a",
       "--status-fair": "#f4d04c",
       "--severity-major": "#f4d04c",
@@ -164,6 +166,7 @@ export const THEMES: Record<ThemeId, ThemeDefinition> = {
       "--heatMap-good": "#4cba70",
       "--heatMap-fair": "#f6d65a",
       "--cd-selected-fill": "#101010",
+      "--cd-icon-fill": "#ffffff",
     },
   },
   "central-dark": {
@@ -309,6 +312,7 @@ export function overlayCss(theme: ThemeDefinition): string {
     theme.vars["--background-front"] ??
     bg;
   const fg = theme.vars["--text-default"] ?? "#e8eaed";
+  const labels = theme.vars["--palette-text-secondary"] ?? fg;
   const tagBg = mixTowardWhite(paper, scheme === "light" ? 0.28 : 0.16);
   return `html[data-cd-theme="${theme.id}"], html[data-cd-theme="${theme.id}"] body {
   color-scheme: ${scheme};
@@ -324,6 +328,21 @@ html[data-cd-theme="${theme.id}"] .MuiCard-root {
 }
 html[data-cd-theme="${theme.id}"] .MuiChip-root.MuiChip-header {
   background-color: ${tagBg} !important;
+}
+html[data-cd-theme="${theme.id}"] .form-label,
+html[data-cd-theme="${theme.id}"] .MuiTableCell-head,
+html[data-cd-theme="${theme.id}"] .MuiTableCell-body,
+html[data-cd-theme="${theme.id}"] .form-value.primary.text {
+  color: ${labels} !important;
+}
+html[data-cd-theme="${theme.id}"] .gvt-icon.home,
+html[data-cd-theme="${theme.id}"] .gvt-icon.menu,
+html[data-cd-theme="${theme.id}"] .gvt-icon.home path,
+html[data-cd-theme="${theme.id}"] .gvt-icon.menu path,
+html[data-cd-theme="${theme.id}"] [data-testid="context-header"] .MuiToggleButton-root:not(.Mui-selected) .gvt-icon,
+html[data-cd-theme="${theme.id}"] [data-testid="context-header"] .MuiToggleButton-root:not(.Mui-selected) .gvt-icon path {
+  fill: ${theme.vars["--cd-icon-fill"] ?? fg} !important;
+  color: ${theme.vars["--cd-icon-fill"] ?? fg} !important;
 }
 ${overlayStatusCss(theme)}`;
 }

@@ -1,4 +1,4 @@
-# Central Dark
+# Central Themes
 
 Browser extension that themes Aruba Central (Gravity) without inverting maps or photos.
 

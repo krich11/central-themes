@@ -44,11 +44,17 @@ export const OVERLAY_COLOR_FIELDS: ColorField[] = [
   {
     id: "text",
     label: "Text",
-    tokens: [
-      "--text-default",
-      "--palette-text-primary",
-      "--palette-text-secondary",
-    ],
+    tokens: ["--text-default", "--palette-text-primary"],
+  },
+  {
+    id: "text2",
+    label: "Text 2",
+    tokens: ["--palette-text-secondary"],
+  },
+  {
+    id: "navIcons",
+    label: "Nav icons",
+    tokens: ["--cd-icon-fill"],
   },
   {
     id: "textStrong",
@@ -170,7 +176,18 @@ export function mergeTheme(
   const theme = THEMES[id];
   if (!theme.vars || !overrides) return theme;
   const vars = { ...theme.vars };
+  const secondary = overrides["--palette-text-secondary"];
+  const primary =
+    overrides["--palette-text-primary"] ?? overrides["--text-default"];
   for (const [key, value] of Object.entries(overrides)) {
+    if (
+      key === "--palette-text-secondary" &&
+      secondary &&
+      primary &&
+      normalizeHex(secondary) === normalizeHex(primary)
+    ) {
+      continue;
+    }
     if (key in vars && isHexColor(value)) vars[key] = normalizeHex(value);
   }
   if (vars["--status-fair"]) vars["--severity-major"] = vars["--status-fair"];
@@ -294,6 +311,8 @@ const STOCK_HEX_FIELDS: Record<string, string> = {
   "#ffbc44": "statusFair",
   "#17eba0": "statusGood",
   "#cccccc": "statusUnknown",
+  "#444444": "text2",
+  "#333333": "text2",
 };
 
 function styleField(el: Element | null): ColorField | null {
@@ -318,6 +337,21 @@ export function matchOverlayField(
   if (el.closest(".MuiToggleButton-root.Mui-selected")) {
     return fieldById("selectedFill");
   }
+  if (
+    el.closest(
+      '.gvt-icon.home, .gvt-icon.menu, [aria-label="Home"], [aria-label="Menu"]',
+    ) ||
+    (el.closest('[data-testid="context-header"] .MuiToggleButton-root') &&
+      !el.closest(".MuiToggleButton-root.Mui-selected"))
+  ) {
+    return fieldById("navIcons");
+  }
+  if (
+    el.closest(".form-label, .MuiTableCell-head, .MuiTableCell-body, .form-value.primary") &&
+    !el.closest("a, .form-value-hyperlink, .anchor-bold-default")
+  ) {
+    return fieldById("text2");
+  }
   const segment = el.closest("[class*='segment-']");
   if (segment) {
     const cls = ` ${segment.className} `;
@@ -337,6 +371,18 @@ export function matchOverlayField(
   }
   const fromEl = styleField(el) ?? styleField(el.closest("path, svg"));
   if (fromEl) return fromEl;
+  const ownColor = cssColorToHex(getComputedStyle(el).color);
+  if (ownColor) {
+    const mapped = STOCK_HEX_FIELDS[ownColor];
+    if (mapped) return fieldById(mapped);
+    let bestText: { field: ColorField; dist: number } | null = null;
+    for (const field of OVERLAY_COLOR_FIELDS) {
+      if (!field.id.startsWith("text")) continue;
+      const dist = hexDistance(fieldValue(vars, field), ownColor);
+      if (!bestText || dist < bestText.dist) bestText = { field, dist };
+    }
+    if (bestText && bestText.dist <= 48) return bestText.field;
+  }
   const samples = sampleElementColors(el);
   for (const sample of samples) {
     const mapped = STOCK_HEX_FIELDS[normalizeHex(sample)];

@@ -1,6 +1,6 @@
 {
-  "name": "central-dark",
-  "version": "0.2.0",
+  "name": "central-themes",
+  "version": "0.2.6",
   "private": true,
   "type": "module",
   "description": "Theme overlay for Aruba Central: Central Light, Dim, Midnight, High Contrast, and native Central Dark.",
