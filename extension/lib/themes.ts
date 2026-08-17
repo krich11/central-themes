@@ -1,0 +1,185 @@
+export const THEME_IDS = [
+  "central-light",
+  "dim",
+  "midnight",
+  "high-contrast",
+  "central-dark",
+] as const;
+
+export type ThemeId = (typeof THEME_IDS)[number];
+
+export const DEFAULT_THEME: ThemeId = "central-light";
+
+export const NATIVE_THEME_STORAGE_KEY = "cnx-ui-theme";
+export const CD_THEME_STORAGE_KEY = "cd-theme";
+export const CD_RELOAD_FLAG = "cd-theme-reload";
+
+export type ThemeKind = "native" | "overlay";
+
+export interface ThemeDefinition {
+  id: ThemeId;
+  label: string;
+  kind: ThemeKind;
+  /** Native Central theme this overlay sits on. Central Dark is native-only. */
+  native: "light" | "dark";
+  description: string;
+  vars?: Record<string, string>;
+  colorScheme?: "light" | "dark";
+}
+
+/** Charcoal overlay — former "Dark", renamed so it does not clash with Central Dark. */
+export const THEMES: Record<ThemeId, ThemeDefinition> = {
+  "central-light": {
+    id: "central-light",
+    label: "Central Light",
+    kind: "native",
+    native: "light",
+    description: "Stock Aruba Central light UI. No overlay.",
+  },
+  dim: {
+    id: "dim",
+    label: "Dim",
+    kind: "overlay",
+    native: "light",
+    colorScheme: "light",
+    description: "Gray surfaces, reduced glare, still on the light chrome.",
+    vars: {
+      "--background-default": "#a4aab4",
+      "--background-front": "#c6cad1",
+      "--background-back": "#a4aab4",
+      "--background-solidHover": "#bcc1c8",
+      "--background-backSolidHover": "#969ca6",
+      "--palette-background-default": "#a4aab4",
+      "--palette-background-paper": "#c6cad1",
+      "--ag-background-color": "#c6cad1",
+      "--ag-header-background-color": "#a4aab4",
+      "--text-default": "#2a2a2a",
+      "--text-strong": "#111111",
+      "--text-readonly": "#4a4a4a",
+      "--text-weak": "#5c5c5c",
+      "--palette-text-primary": "#2a2a2a",
+      "--palette-text-secondary": "#2a2a2a",
+      "--palette-text-disabled": "#6e6e6e",
+      "--border-default": "#7a7a7a",
+      "--border-strong": "#5a5a5a",
+      "--border-weak": "#9aa0a6",
+      "--ag-border-color": "#7a7a7a",
+      "--ag-secondary-border-color": "#7a7a7a",
+      "--ag-row-border-color": "#7a7a7a",
+      "--brand-hpeGreen": "#01a982",
+      "--brand-default": "#e07500",
+      "--brand-arubaOrange": "#e07500",
+      "--focus": "#e07500",
+    },
+  },
+  midnight: {
+    id: "midnight",
+    label: "Midnight",
+    kind: "overlay",
+    native: "light",
+    colorScheme: "dark",
+    description: "Charcoal overlay. Not native Central Dark.",
+    vars: {
+      "--background-default": "#1e1f22",
+      "--background-front": "#1e1f22",
+      "--background-back": "#2b2d31",
+      "--background-solidHover": "#32343a",
+      "--background-backSolidHover": "#3a3d44",
+      "--palette-background-default": "#1e1f22",
+      "--palette-background-paper": "#2b2d31",
+      "--ag-background-color": "#1e1f22",
+      "--ag-header-background-color": "#2b2d31",
+      "--text-default": "#e8eaed",
+      "--text-strong": "#ffffff",
+      "--text-readonly": "#9aa0a6",
+      "--text-weak": "#9aa0a6",
+      "--palette-text-primary": "#e8eaed",
+      "--palette-text-secondary": "#c4c7cc",
+      "--palette-text-disabled": "#80868b",
+      "--border-default": "#3c4043",
+      "--border-strong": "#5f6368",
+      "--border-weak": "#2a2a2a",
+      "--ag-border-color": "#3c4043",
+      "--ag-secondary-border-color": "#3c4043",
+      "--ag-row-border-color": "#3c4043",
+      "--brand-hpeGreen": "#1ec99a",
+      "--brand-default": "#ff9a2e",
+      "--brand-arubaOrange": "#ff9a2e",
+      "--focus": "#ff9a2e",
+    },
+  },
+  "high-contrast": {
+    id: "high-contrast",
+    label: "High Contrast",
+    kind: "overlay",
+    native: "light",
+    colorScheme: "dark",
+    description: "Near-black, high contrast.",
+    vars: {
+      "--background-default": "#0a0a0a",
+      "--background-front": "#0a0a0a",
+      "--background-back": "#111111",
+      "--background-solidHover": "#1a1a1a",
+      "--background-backSolidHover": "#222222",
+      "--palette-background-default": "#0a0a0a",
+      "--palette-background-paper": "#111111",
+      "--ag-background-color": "#0a0a0a",
+      "--ag-header-background-color": "#111111",
+      "--text-default": "#f5f5f5",
+      "--text-strong": "#ffffff",
+      "--text-readonly": "#c8c8c8",
+      "--text-weak": "#c8c8c8",
+      "--palette-text-primary": "#f5f5f5",
+      "--palette-text-secondary": "#e0e0e0",
+      "--palette-text-disabled": "#888888",
+      "--border-default": "#333333",
+      "--border-strong": "#555555",
+      "--border-weak": "#222222",
+      "--ag-border-color": "#333333",
+      "--ag-secondary-border-color": "#333333",
+      "--ag-row-border-color": "#333333",
+      "--brand-hpeGreen": "#00ffc6",
+      "--brand-default": "#ffb347",
+      "--brand-arubaOrange": "#ffb347",
+      "--focus": "#00ffc6",
+    },
+  },
+  "central-dark": {
+    id: "central-dark",
+    label: "Central Dark",
+    kind: "native",
+    native: "dark",
+    description: "Aruba Central’s built-in dark theme (cnx-ui-theme).",
+  },
+};
+
+export function isThemeId(value: string | null | undefined): value is ThemeId {
+  return THEME_IDS.includes(value as ThemeId);
+}
+
+export function overlayCss(theme: ThemeDefinition): string {
+  if (!theme.vars) return "";
+  const decls = Object.entries(theme.vars)
+    .map(([k, v]) => `  ${k}: ${v};`)
+    .join("\n");
+  const scheme = theme.colorScheme ?? "dark";
+  const bg = theme.vars["--background-default"] ?? "#1e1f22";
+  const paper =
+    theme.vars["--palette-background-paper"] ??
+    theme.vars["--background-front"] ??
+    bg;
+  const fg = theme.vars["--text-default"] ?? "#e8eaed";
+  return `html[data-cd-theme="${theme.id}"], html[data-cd-theme="${theme.id}"] body {
+  color-scheme: ${scheme};
+  background-color: ${bg} !important;
+  color: ${fg};
+}
+html[data-cd-theme="${theme.id}"] {
+${decls}
+}
+html[data-cd-theme="${theme.id}"] .MuiPaper-root,
+html[data-cd-theme="${theme.id}"] .MuiCard-root {
+  background-color: ${paper} !important;
+}
+`;
+}

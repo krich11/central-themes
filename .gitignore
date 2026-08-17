@@ -3,3 +3,7 @@
 
 # Ephemeral Playwright MCP session logs
 .playwright-mcp/
+
+node_modules/
+.output/
+.wxt/
