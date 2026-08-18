@@ -6,7 +6,7 @@ This project is not affiliated with HPE or Aruba.
 
 ![Extension popup](docs/screenshots/popup.png)
 
-## What it does (v0.2.7)
+## What it does
 
 - Five themes from a popup menu: **Central Light**, **Dim**, **Midnight**, **High Contrast**, and native **Central Dark**
 - Overlay themes sit on Central’s light UI and remap Gravity CSS variables
@@ -30,11 +30,11 @@ Customize is available on Dim, Midnight, and High Contrast.
 
 End users: download the zip from GitHub Releases. Do not clone the repo.
 
-**[Download 0.2.6 (Chrome / Edge zip)](https://github.com/krich11/central-themes/releases/download/v0.2.6/central-themes-0.2.6-chrome.zip)**
+**[Download the latest Chrome / Edge zip](https://github.com/krich11/central-themes/releases/latest)**
 
-All versions: [Releases](https://github.com/krich11/central-themes/releases) · step-by-step: [docs/install.md](docs/install.md)
+On the release page, take the `.zip` asset — not “Source code”. Step-by-step: [docs/install.md](docs/install.md)
 
-1. Download `central-themes-0.2.6-chrome.zip` (that file only — not Source code)
+1. Download the Chrome/Edge zip
 2. Unzip it
 3. Edge or Chrome → `edge://extensions` / `chrome://extensions` → **Developer mode** → **Load unpacked**
 4. Select the unzipped folder that contains `manifest.json`
