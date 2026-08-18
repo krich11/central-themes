@@ -182,7 +182,7 @@ async function openCustomizer() {
     "top:72px",
     "right:16px",
     "z-index:2147483646",
-    "width:430px",
+    "width:344px",
     "background:#1e1f22",
     "border:1px solid #5f6368",
     "border-radius:10px",

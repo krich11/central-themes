@@ -420,7 +420,12 @@ export function sanitizeOverrides(
 export function parsePaletteFile(
   raw: string,
   allowedVars: Record<string, string> | undefined,
-): { name?: string; overrides: Record<string, string> } | null {
+): {
+  name?: string;
+  themeId?: string;
+  overrides: Record<string, string>;
+  vars: Record<string, string>;
+} | null {
   let parsed: unknown;
   try {
     parsed = JSON.parse(raw);
@@ -437,22 +442,38 @@ export function parsePaletteFile(
     theme?: unknown;
   };
   const source =
-    body.overrides && typeof body.overrides === "object" &&
-    Object.keys(body.overrides as object).length > 0
-      ? (body.overrides as Record<string, unknown>)
-      : body.vars && typeof body.vars === "object"
-        ? (body.vars as Record<string, unknown>)
-        : body.colors && typeof (parsed as { colors?: unknown }).colors === "object"
-          ? ((parsed as { colors: Record<string, unknown> }).colors)
-        : (parsed as Record<string, unknown>);
-  const overrides = sanitizeOverrides(allowedVars, source);
+    body.vars && typeof body.vars === "object"
+      ? (body.vars as Record<string, unknown>)
+      : body.overrides && typeof body.overrides === "object"
+        ? (body.overrides as Record<string, unknown>)
+        : body.colors && typeof body.colors === "object"
+          ? (body.colors as Record<string, unknown>)
+          : (parsed as Record<string, unknown>);
+  const allowed = allowedVars ?? hexVarMap(source);
+  const overrides = sanitizeOverrides(allowed, source);
   const name =
     typeof body.name === "string"
       ? body.name.trim()
       : typeof body.profile === "string"
         ? body.profile.trim()
         : "";
-  return { overrides, name: name || undefined };
+  const themeId = typeof body.theme === "string" ? body.theme : undefined;
+  return {
+    overrides,
+    name: name || undefined,
+    themeId,
+    vars: { ...allowed, ...overrides },
+  };
+}
+
+function hexVarMap(source: Record<string, unknown>): Record<string, string> {
+  const next: Record<string, string> = {};
+  for (const [key, value] of Object.entries(source)) {
+    if (key.startsWith("--") && typeof value === "string" && isHexColor(value)) {
+      next[key] = normalizeHex(value);
+    }
+  }
+  return next;
 }
 
 export function fieldValue(
@@ -578,55 +599,88 @@ function hexDistance(a: string, b: string): number {
   return Math.sqrt(dr * dr + dg * dg + db * db);
 }
 
-function sampleElementColors(el: Element): string[] {
-  const found: string[] = [];
-  const add = (css: string) => {
-    const hex = cssColorToHex(css);
-    if (hex) found.push(hex);
-  };
-  let node: Element | null = el;
-  for (let i = 0; i < 8 && node; i++) {
-    const cs = getComputedStyle(node);
-    add(cs.backgroundColor);
-    add(cs.color);
-    add(cs.borderBottomColor);
-    add(cs.borderColor);
-    add(cs.fill);
-    add(cs.stroke);
-    const fillAttr = node.getAttribute("fill");
-    const strokeAttr = node.getAttribute("stroke");
-    if (fillAttr && isHexColor(fillAttr)) found.push(normalizeHex(fillAttr));
-    if (strokeAttr && isHexColor(strokeAttr)) found.push(normalizeHex(strokeAttr));
-    node = node.parentElement;
+function fieldById(id: string): ColorField | null {
+  return OVERLAY_COLOR_FIELDS.find((field) => field.id === id) ?? null;
+}
+
+function fieldForToken(token: string): ColorField | null {
+  for (const field of OVERLAY_COLOR_FIELDS) {
+    if ((field.tokens as readonly string[]).includes(token)) return field;
   }
-  if (el instanceof Element) {
-    for (const painted of el.querySelectorAll("path, rect, circle")) {
-      add(getComputedStyle(painted).fill);
-      add(getComputedStyle(painted).stroke);
-      const fillAttr = painted.getAttribute("fill");
-      const strokeAttr = painted.getAttribute("stroke");
-      if (fillAttr && isHexColor(fillAttr)) found.push(normalizeHex(fillAttr));
-      if (strokeAttr && isHexColor(strokeAttr)) found.push(normalizeHex(strokeAttr));
+  if (token.startsWith("--opacity-status-good")) return fieldById("statusGood");
+  if (token.startsWith("--opacity-status-fair")) return fieldById("statusFair");
+  if (token.startsWith("--opacity-status-unknown")) return fieldById("statusUnknown");
+  return null;
+}
+
+function varsInCss(css: string): string[] {
+  return [...css.matchAll(/var\(\s*(--[A-Za-z0-9-]+)/gi)].map((m) => m[1]);
+}
+
+const PAINT_PROPS = [
+  "color",
+  "fill",
+  "stroke",
+  "background-color",
+  "border-color",
+  "border-bottom-color",
+] as const;
+
+function collectSheetVars(
+  el: Element,
+  rules: CSSRuleList,
+  found: string[],
+) {
+  for (const rule of rules) {
+    if (rule instanceof CSSMediaRule || rule instanceof CSSSupportsRule) {
+      collectSheetVars(el, rule.cssRules, found);
+      continue;
+    }
+    if (!(rule instanceof CSSStyleRule) || !rule.selectorText) continue;
+    if (!rule.cssText.includes("var(--")) continue;
+    try {
+      if (!el.matches(rule.selectorText)) continue;
+    } catch {
+      continue;
+    }
+    found.push(...varsInCss(rule.style.cssText));
+    for (const prop of PAINT_PROPS) {
+      found.push(...varsInCss(rule.style.getPropertyValue(prop)));
+    }
+  }
+}
+
+/** CSS custom properties the node actually uses (not nearest hex). */
+function cssTokensOn(el: Element): string[] {
+  const found: string[] = [];
+  found.push(...varsInCss(el.getAttribute("style") ?? ""));
+  if (el instanceof HTMLElement || el instanceof SVGElement) {
+    for (const prop of PAINT_PROPS) {
+      found.push(...varsInCss(el.style.getPropertyValue(prop)));
+    }
+  }
+  const sheets: CSSStyleSheet[] = [...document.styleSheets];
+  if (document.adoptedStyleSheets) sheets.push(...document.adoptedStyleSheets);
+  for (const sheet of sheets) {
+    try {
+      collectSheetVars(el, sheet.cssRules, found);
+    } catch {
+      /* cross-origin sheet */
     }
   }
   return found;
 }
 
-function fieldById(id: string): ColorField | null {
-  return OVERLAY_COLOR_FIELDS.find((field) => field.id === id) ?? null;
+function isGraphic(el: Element): boolean {
+  if (el instanceof SVGTextElement) return false;
+  return (
+    el instanceof SVGElement ||
+    Boolean(el.closest("path, circle, rect, line, polygon, polyline, .gvt-icon"))
+  );
 }
 
-const STOCK_HEX_FIELDS: Record<string, string> = {
-  "#ffbc44": "statusFair",
-  "#17eba0": "statusGood",
-  "#cccccc": "statusUnknown",
-  "#444444": "text2",
-  "#333333": "text2",
-};
-
-function styleField(el: Element | null): ColorField | null {
-  if (!el) return null;
-  const style = `${el.getAttribute("style") ?? ""} ${el.getAttribute("class") ?? ""}`;
+function classField(el: Element): ColorField | null {
+  const style = `${el.getAttribute("class") ?? ""} ${el.getAttribute("style") ?? ""} ${el.getAttribute("data-testid") ?? ""}`;
   if (/severity-major|status-fair|HealthMediumFair|SeverityMediumMajor/i.test(style)) {
     return fieldById("statusFair");
   }
@@ -636,12 +690,35 @@ function styleField(el: Element | null): ColorField | null {
   if (/status-unknown|severity-minor/i.test(style)) {
     return fieldById("statusUnknown");
   }
+  if (/\bform-label\b|\bMuiTableCell-head\b|\bMuiTableCell-body\b|\bag-cell\b|\bag-header-cell\b|\bform-value\b/i.test(style)) {
+    return fieldById("text2");
+  }
+  return null;
+}
+
+function classFieldWalk(el: Element): ColorField | null {
+  let node: Element | null = el;
+  for (let i = 0; i < 5 && node; i++) {
+    const hit = classField(node);
+    if (hit) return hit;
+    const cls = node.getAttribute("class") ?? "";
+    if (/\bMuiPaper-root\b|\bMuiCard-root\b/.test(cls)) break;
+    node = node.parentElement;
+  }
+  return null;
+}
+
+function fieldFromTokens(tokens: string[]): ColorField | null {
+  for (const token of tokens) {
+    const field = fieldForToken(token);
+    if (field) return field;
+  }
   return null;
 }
 
 export function matchOverlayField(
   el: Element,
-  vars: Record<string, string>,
+  _vars: Record<string, string>,
 ): ColorField | null {
   if (el.closest(".MuiToggleButton-root.Mui-selected")) {
     return fieldById("selectedFill");
@@ -655,12 +732,51 @@ export function matchOverlayField(
   ) {
     return fieldById("navIcons");
   }
-  if (
-    el.closest(".form-label, .MuiTableCell-head, .MuiTableCell-body, .form-value.primary") &&
-    !el.closest("a, .form-value-hyperlink, .anchor-bold-default")
-  ) {
-    return fieldById("text2");
+
+  const graphic = isGraphic(el);
+  const tokens = cssTokensOn(el);
+  const colorTokens = tokens.filter((token) =>
+    token.includes("text") ||
+    token.includes("status") ||
+    token.includes("brand") ||
+    token.includes("heatMap") ||
+    token.includes("icon") ||
+    token.includes("background") ||
+    token.includes("border") ||
+    token.includes("focus") ||
+    token.startsWith("--cd-"),
+  );
+  const preferFill = graphic
+    ? colorTokens.filter(
+        (token) =>
+          token.includes("status") ||
+          token.includes("heatMap") ||
+          token.includes("brand") ||
+          token.includes("icon") ||
+          token.startsWith("--cd-icon"),
+      )
+    : colorTokens.filter(
+        (token) =>
+          token.includes("text") || token.startsWith("--palette-text"),
+      );
+  const fromCss =
+    fieldFromTokens(preferFill) ?? fieldFromTokens(colorTokens) ?? fieldFromTokens(tokens);
+  if (fromCss) return fromCss;
+
+  if (!graphic) {
+    const fromClass = classFieldWalk(el);
+    if (fromClass) return fromClass;
+    if (
+      el.closest(
+        ".form-label, .MuiTableCell-head, .MuiTableCell-body, .form-value.primary, .ag-cell, .ag-header-cell, label, td, th",
+      ) &&
+      !el.closest("a, .form-value-hyperlink, .anchor-bold-default")
+    ) {
+      return fieldById("text2");
+    }
+    return null;
   }
+
   const segment = el.closest("[class*='segment-']");
   if (segment) {
     const cls = ` ${segment.className} `;
@@ -670,43 +786,5 @@ export function matchOverlayField(
     if (/\ssegment-2\s/.test(cls)) return fieldById("statusGood");
     if (/\ssegment-1\s/.test(cls)) return fieldById("statusFair");
   }
-  const chart = el.closest(".circular-chart, [class*='CircularChart']");
-  if (chart) {
-    const fromChart =
-      styleField(el) ??
-      styleField(el.closest("path, svg")) ??
-      styleField(chart.querySelector("path.arc-0, path[id^='arc-']"));
-    if (fromChart) return fromChart;
-  }
-  const fromEl = styleField(el) ?? styleField(el.closest("path, svg"));
-  if (fromEl) return fromEl;
-  const ownColor = cssColorToHex(getComputedStyle(el).color);
-  if (ownColor) {
-    const mapped = STOCK_HEX_FIELDS[ownColor];
-    if (mapped) return fieldById(mapped);
-    let bestText: { field: ColorField; dist: number } | null = null;
-    for (const field of OVERLAY_COLOR_FIELDS) {
-      if (!field.id.startsWith("text")) continue;
-      const dist = hexDistance(fieldValue(vars, field), ownColor);
-      if (!bestText || dist < bestText.dist) bestText = { field, dist };
-    }
-    if (bestText && bestText.dist <= 48) return bestText.field;
-  }
-  const samples = sampleElementColors(el);
-  for (const sample of samples) {
-    const mapped = STOCK_HEX_FIELDS[normalizeHex(sample)];
-    if (mapped) return fieldById(mapped);
-  }
-  if (!samples.length) return null;
-  let best: { field: ColorField; dist: number } | null = null;
-  for (const field of OVERLAY_COLOR_FIELDS) {
-    const hex = fieldValue(vars, field);
-    for (const sample of samples) {
-      const dist = hexDistance(hex, sample);
-      if (!best || dist < best.dist) best = { field, dist };
-    }
-  }
-  if (!best) return null;
-  if (best.dist > 48) return null;
-  return best.field;
+  return classField(el) ?? classField(el.closest("path, svg") ?? el);
 }

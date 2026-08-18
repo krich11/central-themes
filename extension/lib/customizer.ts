@@ -7,11 +7,9 @@ import {
   hsvToHex,
   isHexColor,
   normalizeHex,
-  parsePaletteFile,
   textContrastIssues,
   type ColorField,
 } from "./palette";
-import { slugify } from "./profiles";
 import { type ThemeDefinition } from "./themes";
 
 export const CUSTOMIZER_CSS = `
@@ -211,6 +209,10 @@ export const CUSTOMIZER_CSS = `
   margin: 8px 0 0;
   accent-color: #01a982;
 }
+.cd-picker-reset {
+  width: 100%;
+  margin-top: 8px;
+}
 .cd-note {
   margin: 8px 0 0;
   color: #9aa0a6;
@@ -340,6 +342,7 @@ function openPicker(
   host: HTMLElement,
   fieldLabel: string,
   onPick: (hex: string) => void,
+  baseline: { hex: string; label: string },
 ) {
   host.querySelector(".cd-popover")?.remove();
   const start = normalizeHex(anchor.dataset.hex || "#888888");
@@ -413,7 +416,21 @@ function openPicker(
   hue.value = String(Math.round(hsv.h));
   wheelPanel.append(sv, hue);
 
-  pop.append(title, tabs, palettePanel, wheelPanel);
+  const resetSwatch = document.createElement("button");
+  resetSwatch.type = "button";
+  resetSwatch.className = "cd-picker-reset";
+  resetSwatch.textContent = baseline.label;
+  resetSwatch.title = "Reset this color only, same as Reset on the panel";
+  const applyBaseline = () => {
+    current = normalizeHex(baseline.hex);
+    hsv = hexToHsv(current);
+    paint();
+    markActive();
+    onPick(current);
+  };
+  resetSwatch.addEventListener("click", applyBaseline);
+
+  pop.append(title, tabs, palettePanel, wheelPanel, resetSwatch);
 
   const showTab = (tab: PickerTab) => {
     lastPickerTab = tab;
@@ -557,20 +574,6 @@ export function mountCustomizer(
   reset.type = "button";
   reset.textContent = "Reset";
   actions.append(reset);
-  const exportBtn = document.createElement("button");
-  exportBtn.type = "button";
-  exportBtn.textContent = "Export";
-  exportBtn.title = "Download this theme’s color overrides as JSON";
-  actions.append(exportBtn);
-  const importBtn = document.createElement("button");
-  importBtn.type = "button";
-  importBtn.textContent = "Import";
-  importBtn.title = "Load color overrides from a JSON file";
-  const importInput = document.createElement("input");
-  importInput.type = "file";
-  importInput.accept = "application/json,.json";
-  importInput.hidden = true;
-  actions.append(importBtn, importInput);
   const eyedrop = document.createElement("button");
   eyedrop.type = "button";
   eyedrop.textContent = "Select";
@@ -676,6 +679,11 @@ export function mountCustomizer(
     commitField(field, btn.dataset.hex);
   });
 
+  const pickerBaseline = (field: ColorField) => ({
+    hex: fieldValue(theme.vars ?? {}, field),
+    label: "Reset",
+  });
+
   for (const field of OVERLAY_COLOR_FIELDS) {
     const row = document.createElement("div");
     row.className = "cd-row";
@@ -690,7 +698,13 @@ export function mountCustomizer(
     hex.spellcheck = false;
     hex.maxLength = 7;
     swatch.addEventListener("click", () => {
-      openPicker(swatch, root, field.label, (value) => commitField(field, value));
+      openPicker(
+        swatch,
+        root,
+        field.label,
+        (value) => commitField(field, value),
+        pickerBaseline(field),
+      );
     });
     hex.addEventListener("change", () => {
       const value = hex.value.startsWith("#") ? hex.value : `#${hex.value}`;
@@ -708,44 +722,6 @@ export function mountCustomizer(
     paintRows();
   });
 
-  exportBtn.addEventListener("click", () => {
-    const blob = new Blob(
-      [
-        JSON.stringify(
-          {
-            centralThemes: 1,
-            name: theme.label,
-            theme: theme.id,
-            vars: currentVars(theme, overrides),
-            overrides,
-          },
-          null,
-          2,
-        ),
-      ],
-      { type: "application/json" },
-    );
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = `central-themes-${slugify(theme.label)}.json`;
-    link.click();
-    URL.revokeObjectURL(url);
-  });
-
-  importBtn.addEventListener("click", () => importInput.click());
-  importInput.addEventListener("change", async () => {
-    const file = importInput.files?.[0];
-    importInput.value = "";
-    if (!file) return;
-    const raw = await file.text();
-    const parsed = parsePaletteFile(raw, theme.vars);
-    if (!parsed) return;
-    overrides = parsed.overrides;
-    options.onChange(overrides);
-    paintRows();
-  });
-
   const refresh = (nextTheme: ThemeDefinition, nextOverrides: Record<string, string>) => {
     theme = nextTheme;
     overrides = { ...nextOverrides };
@@ -753,8 +729,6 @@ export function mountCustomizer(
       ? `Customize Profile: ${nextTheme.label}`
       : nextTheme.label;
     reset.disabled = !canCustomize(nextTheme);
-    exportBtn.disabled = !canCustomize(nextTheme);
-    importBtn.disabled = !canCustomize(nextTheme);
     list.style.display = canCustomize(nextTheme) ? "flex" : "none";
     paintRows();
   };
@@ -768,8 +742,12 @@ export function mountCustomizer(
       const pair = controls.get(fieldId);
       if (!field || !pair) return;
       pair.swatch.scrollIntoView({ block: "nearest" });
-      openPicker(pair.swatch, root, field.label, (value) =>
-        commitField(field, value),
+      openPicker(
+        pair.swatch,
+        root,
+        field.label,
+        (value) => commitField(field, value),
+        pickerBaseline(field),
       );
     },
     setEyedropActive: (active: boolean) => {

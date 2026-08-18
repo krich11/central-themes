@@ -66,24 +66,137 @@ main {
   background: #34a853;
 }
 
-label {
+.field-label {
   font-size: 12px;
   color: #9aa0a6;
 }
 
-select {
+.theme-row {
+  display: flex;
+  gap: 8px;
+}
+
+.theme-menu {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+#theme-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   font: inherit;
   padding: 6px 8px;
   border-radius: 6px;
   border: 1px solid #3c4043;
   background: #2b2d31;
   color: inherit;
-  flex: 1;
+  cursor: pointer;
+  text-align: left;
 }
 
-.theme-row {
+#theme-toggle:hover,
+#theme-toggle[aria-expanded="true"] {
+  background: #32343a;
+}
+
+#theme-current {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chevron {
+  color: #9aa0a6;
+  font-size: 11px;
+}
+
+.theme-panel {
+  position: absolute;
+  z-index: 4;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 280px;
+  overflow: auto;
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid #3c4043;
+  background: #2b2d31;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.theme-group {
+  margin: 2px 0 2px;
+  padding: 4px 8px 2px;
+  font-size: 11px;
+  color: #9aa0a6;
+}
+
+.theme-panel > .theme-group:first-child {
+  margin-top: 0;
+}
+
+.theme-item {
   display: flex;
-  gap: 8px;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  min-width: 0;
+}
+
+.theme-item button.pick {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  font: inherit;
+  font-size: 13px;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.theme-item button.pick:hover,
+.theme-item.is-current button.pick {
+  background: #3c4043;
+}
+
+.theme-item .trash {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  border: 0;
+  background: transparent;
+  color: #9aa0a6;
+  cursor: pointer;
+}
+
+.theme-item .trash:hover {
+  color: #f28b82;
+  background: #3c4043;
+}
+
+.theme-item .trash svg {
+  display: block;
+}
+
+.theme-sep {
+  height: 1px;
+  margin: 4px 8px;
+  background: #3c4043;
 }
 
 #customize {
@@ -102,6 +215,32 @@ select {
 }
 
 #customize:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.io-row {
+  display: flex;
+  gap: 8px;
+}
+
+#export,
+#import {
+  font: inherit;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid #3c4043;
+  background: #2b2d31;
+  color: inherit;
+  cursor: pointer;
+}
+
+#export:hover:not(:disabled),
+#import:hover {
+  background: #32343a;
+}
+
+#export:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
@@ -146,71 +285,4 @@ select {
   color: inherit;
   white-space: nowrap;
   cursor: pointer;
-}
-
-.profile-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.profile-list[hidden] {
-  display: none;
-}
-
-.profile-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  min-width: 0;
-}
-
-.profile-row button.profile-pick {
-  flex: 1;
-  min-width: 0;
-  text-align: left;
-  font: inherit;
-  font-size: 12px;
-  padding: 4px 8px;
-  border-radius: 6px;
-  border: 1px solid transparent;
-  background: transparent;
-  color: inherit;
-  cursor: pointer;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.profile-row button.profile-pick:hover {
-  background: #2b2d31;
-}
-
-.profile-row.is-current button.profile-pick {
-  border-color: #3c4043;
-  background: #2b2d31;
-}
-
-.profile-row .trash {
-  flex-shrink: 0;
-  width: 26px;
-  height: 26px;
-  padding: 0;
-  display: grid;
-  place-items: center;
-  border-radius: 6px;
-  border: 1px solid transparent;
-  background: transparent;
-  color: #9aa0a6;
-  cursor: pointer;
-}
-
-.profile-row .trash:hover {
-  color: #f28b82;
-  border-color: #5f6368;
-  background: #2b2d31;
-}
-
-.profile-row .trash svg {
-  display: block;
 }

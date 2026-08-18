@@ -24,7 +24,7 @@ This project is not affiliated with HPE or Aruba.
 | **High Contrast** | Near-black overlay. |
 | **Central Dark** | Aruba Central’s built-in dark theme. Reloads once when switching to or from it. |
 
-Customize is available on Dim, Midnight, High Contrast, and any **Custom…** profile. **Custom…** clones the current theme; each custom profile has a trash control in the popup.
+Customize is available on Dim, Midnight, High Contrast, and any **Custom…** profile. Custom profiles show a trash control on their dropdown row; built-in themes cannot be deleted.
 
 ## Install
 
