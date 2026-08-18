@@ -6,7 +6,7 @@ This project is not affiliated with HPE or Aruba.
 
 ![Extension popup](docs/screenshots/popup.png)
 
-## What it does (v0.2.6)
+## What it does (v0.2.7)
 
 - Five themes from a popup menu: **Central Light**, **Dim**, **Midnight**, **High Contrast**, and native **Central Dark**
 - Overlay themes sit on Central’s light UI and remap Gravity CSS variables
