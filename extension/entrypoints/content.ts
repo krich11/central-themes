@@ -1,5 +1,5 @@
 import { storage } from "wxt/utils/storage";
-import { applyTheme, readFastOverrides, readFastTheme } from "../lib/apply";
+import { applyTheme, readFastOverrides, readFastProfiles, readFastTheme } from "../lib/apply";
 import { CUSTOMIZER_CSS, mountCustomizer, type CustomizerHandle } from "../lib/customizer";
 import {
   CD_OVERRIDES_STORAGE_KEY,
@@ -10,20 +10,31 @@ import {
   type ThemeOverrides,
 } from "../lib/palette";
 import {
+  CD_PROFILES_STORAGE_KEY,
+  resolveTheme,
+  sanitizeProfiles,
+  type CustomProfile,
+} from "../lib/profiles";
+import {
+  CD_PING,
   CD_TOGGLE_CUSTOMIZER,
   DEFAULT_THEME,
   THEMES,
-  isThemeId,
-  type ThemeId,
+  type ThemeDefinition,
 } from "../lib/themes";
 
-const themeStorage = storage.defineItem<ThemeId>("local:cd-theme", {
+const themeStorage = storage.defineItem<string>("local:cd-theme", {
   fallback: DEFAULT_THEME,
 });
 
 const overrideStorage = storage.defineItem<ThemeOverrides>(
   `local:${CD_OVERRIDES_STORAGE_KEY}`,
   { fallback: {} },
+);
+
+const profileStorage = storage.defineItem<CustomProfile[]>(
+  `local:${CD_PROFILES_STORAGE_KEY}`,
+  { fallback: [] },
 );
 
 const HOST_ID = "central-dark-customizer-host";
@@ -36,7 +47,7 @@ function stopEyedrop(handle?: CustomizerHandle) {
   handle?.setEyedropActive(false);
 }
 
-function startEyedrop(handle: CustomizerHandle, themeId: ThemeId) {
+function startEyedrop(handle: CustomizerHandle, theme: ThemeDefinition) {
   stopEyedrop();
   handle.setEyedropActive(true);
   const highlight = document.createElement("div");
@@ -82,7 +93,7 @@ function startEyedrop(handle: CustomizerHandle, themeId: ThemeId) {
     const el = document.elementFromPoint(event.clientX, event.clientY);
     void (async () => {
       const all = await overrideStorage.getValue();
-      const vars = mergeTheme(themeId, overridesFor(all, themeId)).vars ?? {};
+      const vars = mergeTheme(theme, overridesFor(all, theme.id)).vars ?? {};
       const field = el ? matchOverlayField(el, vars) : null;
       if (field) handle.openField(field.id);
     })();
@@ -120,13 +131,14 @@ function closeCustomizer() {
   document.getElementById(HOST_ID)?.remove();
 }
 
-async function currentTheme(): Promise<ThemeId> {
+async function currentTheme(): Promise<ThemeDefinition> {
   const stored = await themeStorage.getValue();
-  return isThemeId(stored) ? stored : DEFAULT_THEME;
+  const profiles = sanitizeProfiles(await profileStorage.getValue());
+  return resolveTheme(stored, profiles) ?? THEMES[DEFAULT_THEME];
 }
 
 async function persistOverrides(
-  id: ThemeId,
+  id: string,
   next: Record<string, string>,
 ): Promise<void> {
   const all = { ...(await overrideStorage.getValue()) };
@@ -160,8 +172,8 @@ function enableDrag(host: HTMLElement, handle: HTMLElement) {
 
 async function openCustomizer() {
   closeCustomizer();
-  const id = await currentTheme();
-  if (!canCustomize(id)) return;
+  const theme = await currentTheme();
+  if (!canCustomize(theme)) return;
 
   const host = document.createElement("div");
   host.id = HOST_ID;
@@ -170,7 +182,7 @@ async function openCustomizer() {
     "top:72px",
     "right:16px",
     "z-index:2147483646",
-    "width:390px",
+    "width:430px",
     "background:#1e1f22",
     "border:1px solid #5f6368",
     "border-radius:10px",
@@ -184,39 +196,40 @@ async function openCustomizer() {
   const shadow = host.attachShadow({ mode: "open" });
   const style = document.createElement("style");
   style.textContent = `${CUSTOMIZER_CSS}
-:host { display: flex; flex-direction: column; }
-.cd-scroll { flex: 1; min-height: 0; overflow-x: hidden; overflow-y: auto; padding-right: 16px; box-sizing: border-box; }`;
-  const scroll = document.createElement("div");
-  scroll.className = "cd-scroll";
-  shadow.append(style, scroll);
+:host { display: flex; flex-direction: column; min-height: 0; }`;
+  const shell = document.createElement("div");
+  shell.style.cssText =
+    "display:flex;flex-direction:column;min-height:0;flex:1;height:100%";
+  shadow.append(style, shell);
 
   const all = await overrideStorage.getValue();
-  const handle = mountCustomizer(scroll, {
-    themeId: id,
-    overrides: overridesFor(all, id),
+  const handle = mountCustomizer(shell, {
+    theme,
+    overrides: overridesFor(all, theme.id),
     onClose: closeCustomizer,
     onChange: (next) => {
-      void persistOverrides(id, next);
+      void persistOverrides(theme.id, next);
     },
     onReset: () => {
-      void persistOverrides(id, {});
+      void persistOverrides(theme.id, {});
     },
     onEyedropper: () => {
       if (eyedropStop) stopEyedrop(handle);
-      else startEyedrop(handle, id);
+      else startEyedrop(handle, theme);
     },
     note: "Changes apply live on this page. Drag the header to move. Select: click a control to open its swatch. Esc cancels.",
   });
-  const head = handle.root.querySelector(".cd-customizer-head");
-  if (head instanceof HTMLElement) enableDrag(host, head);
+  const chrome = handle.root.querySelector(".cd-customizer-chrome");
+  if (chrome instanceof HTMLElement) enableDrag(host, chrome);
 
   document.documentElement.append(host);
 }
 
 async function applyFromStorage() {
-  const id = await currentTheme();
+  const theme = await currentTheme();
   const all = await overrideStorage.getValue();
-  applyTheme(id, all);
+  const profiles = sanitizeProfiles(await profileStorage.getValue());
+  applyTheme(theme.id, all, profiles);
 }
 
 export default defineContentScript({
@@ -237,8 +250,19 @@ export default defineContentScript({
     overrideStorage.watch(() => {
       void applyFromStorage();
     });
+    profileStorage.watch(() => {
+      void applyFromStorage();
+    });
 
     browser.runtime.onMessage.addListener((message) => {
+      if (
+        message &&
+        typeof message === "object" &&
+        "type" in message &&
+        message.type === CD_PING
+      ) {
+        return Promise.resolve({ ok: true });
+      }
       if (
         message &&
         typeof message === "object" &&
@@ -248,7 +272,13 @@ export default defineContentScript({
         const existing = document.getElementById(HOST_ID);
         if (existing) closeCustomizer();
         else void openCustomizer();
-        return Promise.resolve({ ok: true, theme: THEMES[readFastTheme()].label });
+        return Promise.resolve({
+          ok: true,
+          theme: (
+            resolveTheme(readFastTheme(), readFastProfiles()) ??
+            THEMES[DEFAULT_THEME]
+          ).label,
+        });
       }
       return undefined;
     });

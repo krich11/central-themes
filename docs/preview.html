@@ -75,7 +75,7 @@
 
       /* Customizer card */
       #shot-swatches {
-        width: 390px;
+        width: 430px;
         background: #1e1f22;
         border: 1px solid #5f6368;
         border-radius: 10px;
@@ -86,24 +86,40 @@
       .cd-customizer {
         font: 12px/1.35 Segoe UI, system-ui, sans-serif;
         color: #e8eaed;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
       }
       .cd-customizer h2 {
         margin: 0;
         font-size: 13px;
         font-weight: 650;
       }
+      .cd-customizer-chrome {
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-bottom: 8px;
+      }
       .cd-customizer-head {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 8px;
-        margin-bottom: 8px;
       }
       .cd-customizer-actions {
         display: flex;
         align-items: center;
-        gap: 8px;
+        justify-content: flex-end;
+        gap: 6px;
         flex-shrink: 0;
+        flex-wrap: nowrap;
+      }
+      .cd-body {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
       }
       .cd-customizer button {
         font: inherit;
@@ -272,19 +288,25 @@
 
       <div id="shot-swatches">
         <div class="cd-customizer">
-          <div class="cd-customizer-head">
-            <h2>Customize Midnight</h2>
+          <div class="cd-customizer-chrome">
+            <div class="cd-customizer-head">
+              <h2>Customize Profile: Midnight</h2>
+            </div>
             <div class="cd-customizer-actions">
               <button type="button">Reset</button>
+              <button type="button">Export</button>
+              <button type="button">Import</button>
               <button type="button">Select</button>
               <button type="button">Done</button>
             </div>
           </div>
-          <div class="cd-customizer-list" id="swatch-list"></div>
-          <p class="cd-note">
-            Changes apply live on this page. Drag the header to move. Select:
-            click a control to open its swatch. Esc cancels.
-          </p>
+          <div class="cd-body">
+            <div class="cd-customizer-list" id="swatch-list"></div>
+            <p class="cd-note">
+              Changes apply live on this page. Drag the header to move. Select:
+              click a control to open its swatch. Esc cancels.
+            </p>
+          </div>
         </div>
       </div>
 

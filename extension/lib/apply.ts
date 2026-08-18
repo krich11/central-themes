@@ -6,27 +6,34 @@ import {
   THEMES,
   isThemeId,
   overlayCss,
-  type ThemeId,
+  type ThemeDefinition,
 } from "./themes";
 import {
   CD_OVERRIDES_STORAGE_KEY,
   mergeTheme,
   type ThemeOverrides,
 } from "./palette";
+import {
+  CD_PROFILES_STORAGE_KEY,
+  resolveTheme,
+  sanitizeProfiles,
+  type CustomProfile,
+} from "./profiles";
 
 const STYLE_ID = "central-dark-theme-vars";
 
-export function readFastTheme(): ThemeId {
+export function readFastTheme(): string {
   try {
     const raw = localStorage.getItem(CD_THEME_STORAGE_KEY);
     if (isThemeId(raw)) return raw;
+    if (raw && resolveTheme(raw, readFastProfiles())) return raw;
   } catch {
     /* ignore */
   }
   return DEFAULT_THEME;
 }
 
-export function writeFastTheme(id: ThemeId): void {
+export function writeFastTheme(id: string): void {
   try {
     localStorage.setItem(CD_THEME_STORAGE_KEY, id);
   } catch {
@@ -53,8 +60,22 @@ export function writeFastOverrides(all: ThemeOverrides): void {
   }
 }
 
-function desiredNative(id: ThemeId): "light" | "dark" {
-  return THEMES[id].native;
+export function readFastProfiles(): CustomProfile[] {
+  try {
+    const raw = localStorage.getItem(CD_PROFILES_STORAGE_KEY);
+    if (!raw) return [];
+    return sanitizeProfiles(JSON.parse(raw));
+  } catch {
+    return [];
+  }
+}
+
+export function writeFastProfiles(profiles: CustomProfile[]): void {
+  try {
+    localStorage.setItem(CD_PROFILES_STORAGE_KEY, JSON.stringify(profiles));
+  } catch {
+    /* ignore */
+  }
 }
 
 function currentNative(): "light" | "dark" {
@@ -68,8 +89,7 @@ function currentNative(): "light" | "dark" {
 }
 
 /** Align Central’s own cnx-ui-theme. Reloads once if it must change. */
-export function syncNativeTheme(id: ThemeId): boolean {
-  const want = desiredNative(id);
+export function syncNativeTheme(want: "light" | "dark"): boolean {
   const have = currentNative();
   if (want === have) {
     try {
@@ -93,23 +113,24 @@ export function syncNativeTheme(id: ThemeId): boolean {
   return true;
 }
 
+/** Apply overlay by setting Gravity CSS variables (not a page invert-filter). */
 export function applyOverlay(
-  id: ThemeId,
+  theme: ThemeDefinition,
   overrides?: Record<string, string> | null,
 ): void {
-  const theme = mergeTheme(id, overrides);
-  document.documentElement.dataset.cdTheme = id;
+  const merged = mergeTheme(theme, overrides);
+  document.documentElement.dataset.cdTheme = merged.id;
 
   const existing = document.getElementById(STYLE_ID);
-  if (theme.kind !== "overlay" || !theme.vars) {
+  if (merged.kind !== "overlay" || !merged.vars) {
     existing?.remove();
-    if (theme.kind === "native") {
+    if (merged.kind === "native") {
       delete document.documentElement.dataset.cdTheme;
     }
     return;
   }
 
-  const css = overlayCss(theme);
+  const css = overlayCss(merged);
   if (existing instanceof HTMLStyleElement) {
     existing.textContent = css;
     return;
@@ -121,12 +142,17 @@ export function applyOverlay(
 }
 
 export function applyTheme(
-  id: ThemeId,
+  id: string,
   allOverrides?: ThemeOverrides | null,
+  profiles?: CustomProfile[] | null,
 ): void {
-  writeFastTheme(id);
+  const catalog = profiles ?? readFastProfiles();
+  const theme = resolveTheme(id, catalog) ?? THEMES[DEFAULT_THEME];
+  const resolvedId = theme.id;
+  writeFastTheme(resolvedId);
+  writeFastProfiles(catalog);
   const overrides = allOverrides ?? readFastOverrides();
   if (allOverrides) writeFastOverrides(allOverrides);
-  if (syncNativeTheme(id)) return;
-  applyOverlay(id, overrides[id]);
+  if (syncNativeTheme(theme.native)) return;
+  applyOverlay(theme, overrides[resolvedId]);
 }

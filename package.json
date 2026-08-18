@@ -1,6 +1,6 @@
 {
   "name": "central-themes",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "description": "Theme overlay for Aruba Central: Central Light, Dim, Midnight, High Contrast, and native Central Dark.",
@@ -8,7 +8,7 @@
     "dev": "wxt",
     "dev:firefox": "wxt --browser firefox",
     "build": "wxt build",
-    "build:firefox": "wxt build --browser firefox",
+    "build:firefox": "wxt build --browser firefox --mv3",
     "zip": "wxt zip",
     "postinstall": "wxt prepare"
   },

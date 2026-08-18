@@ -8,7 +8,7 @@ This project is not affiliated with HPE or Aruba.
 
 ## What it does
 
-- Five themes from a popup menu: **Central Light**, **Dim**, **Midnight**, **High Contrast**, and native **Central Dark**
+- Five built-in themes from a popup menu, plus named **custom profiles** (clone, customize, delete)
 - Overlay themes sit on Central’s light UI and remap Gravity CSS variables
 - **Customize** opens a floating card on Central so you can edit colors live
 - **Select** maps a click on the page to the matching swatch
@@ -24,7 +24,7 @@ This project is not affiliated with HPE or Aruba.
 | **High Contrast** | Near-black overlay. |
 | **Central Dark** | Aruba Central’s built-in dark theme. Reloads once when switching to or from it. |
 
-Customize is available on Dim, Midnight, and High Contrast.
+Customize is available on Dim, Midnight, High Contrast, and any **Custom…** profile. **Custom…** clones the current theme; each custom profile has a trash control in the popup.
 
 ## Install
 
@@ -73,6 +73,8 @@ npm run build
 ```
 
 Load unpacked from `.output/chrome-mv3`. Firefox: `npm run build:firefox`, then `.output/firefox-mv3`. Zip a Chrome package with `npm run zip` and attach it to a GitHub Release.
+
+Safari cannot be sideloaded from Windows. The code uses `browser.*` (WXT) so a Mac can convert the Chrome build with Xcode’s Safari Web Extension Converter later.
 
 Source lives in `extension/`.
 

@@ -14,11 +14,12 @@ export const NATIVE_THEME_STORAGE_KEY = "cnx-ui-theme";
 export const CD_THEME_STORAGE_KEY = "cd-theme";
 export const CD_RELOAD_FLAG = "cd-theme-reload";
 export const CD_TOGGLE_CUSTOMIZER = "cd-toggle-customizer";
+export const CD_PING = "cd-ping";
 
 export type ThemeKind = "native" | "overlay";
 
 export interface ThemeDefinition {
-  id: ThemeId;
+  id: string;
   label: string;
   kind: ThemeKind;
   /** Native Central theme this overlay sits on. Central Dark is native-only. */
@@ -203,10 +204,14 @@ function stripHash(hex: string): string {
   return hex.replace("#", "");
 }
 
+function themeSelector(id: string): string {
+  return `html[data-cd-theme="${CSS.escape(id)}"]`;
+}
+
 function overlayStatusCss(theme: ThemeDefinition): string {
   const vars = theme.vars;
   if (!vars) return "";
-  const id = theme.id;
+  const sel = themeSelector(theme.id);
   const fair = vars["--status-fair"];
   const good = vars["--status-good"];
   const unknown = vars["--status-unknown"];
@@ -231,36 +236,36 @@ function overlayStatusCss(theme: ThemeDefinition): string {
     }
   }
   const extraBlock = extraDecls.length
-    ? `html[data-cd-theme="${id}"] {\n${extraDecls.join("\n")}\n}\n`
+    ? `${sel} {\n${extraDecls.join("\n")}\n}\n`
     : "";
   const remaps: string[] = [];
   if (fair) {
-    remaps.push(`html[data-cd-theme="${id}"] [fill="#ffbc44" i],
-html[data-cd-theme="${id}"] [stroke="#ffbc44" i] {
+    remaps.push(`${sel} [fill="#ffbc44" i],
+${sel} [stroke="#ffbc44" i] {
   fill: ${fair} !important;
   stroke: ${fair} !important;
 }
-html[data-cd-theme="${id}"] .segment-1 {
+${sel} .segment-1 {
   background-color: ${fair} !important;
 }
-html[data-cd-theme="${id}"] .brand-logo [fill="#FF8300" i],
-html[data-cd-theme="${id}"] .brand-logo [fill="#ff8300" i] {
+${sel} .brand-logo [fill="#FF8300" i],
+${sel} .brand-logo [fill="#ff8300" i] {
   fill: #FF8300 !important;
 }`);
   }
   if (good) {
-    remaps.push(`html[data-cd-theme="${id}"] [fill="#17eba0" i],
-html[data-cd-theme="${id}"] [stroke="#17eba0" i] {
+    remaps.push(`${sel} [fill="#17eba0" i],
+${sel} [stroke="#17eba0" i] {
   fill: ${good} !important;
   stroke: ${good} !important;
 }
-html[data-cd-theme="${id}"] .segment-2 {
+${sel} .segment-2 {
   background-color: ${good} !important;
 }`);
   }
   if (unknown) {
-    remaps.push(`html[data-cd-theme="${id}"] .segment-unknown,
-html[data-cd-theme="${id}"] .segment-invalid {
+    remaps.push(`${sel} .segment-unknown,
+${sel} .segment-invalid {
   background-color: ${unknown} !important;
 }`);
   }
@@ -273,12 +278,12 @@ html[data-cd-theme="${id}"] .segment-invalid {
   border-bottom-color: ${accent} !important;
   color: ${accent} !important;`
       : "";
-    remaps.push(`html[data-cd-theme="${id}"] .MuiToggleButton-root.Mui-selected {
+    remaps.push(`${sel} .MuiToggleButton-root.Mui-selected {
 ${fillRule}${accentRules}
 }`);
     if (accent) {
-      remaps.push(`html[data-cd-theme="${id}"] .MuiToggleButton-root.Mui-selected svg,
-html[data-cd-theme="${id}"] .MuiToggleButton-root.Mui-selected path {
+      remaps.push(`${sel} .MuiToggleButton-root.Mui-selected svg,
+${sel} .MuiToggleButton-root.Mui-selected path {
   fill: ${accent} !important;
   color: ${accent} !important;
 }`);
@@ -314,33 +319,34 @@ export function overlayCss(theme: ThemeDefinition): string {
   const fg = theme.vars["--text-default"] ?? "#e8eaed";
   const labels = theme.vars["--palette-text-secondary"] ?? fg;
   const tagBg = mixTowardWhite(paper, scheme === "light" ? 0.28 : 0.16);
-  return `html[data-cd-theme="${theme.id}"], html[data-cd-theme="${theme.id}"] body {
+  const sel = themeSelector(theme.id);
+  return `${sel}, ${sel} body {
   color-scheme: ${scheme};
   background-color: ${bg} !important;
   color: ${fg};
 }
-html[data-cd-theme="${theme.id}"] {
+${sel} {
 ${decls}
 }
-html[data-cd-theme="${theme.id}"] .MuiPaper-root,
-html[data-cd-theme="${theme.id}"] .MuiCard-root {
+${sel} .MuiPaper-root,
+${sel} .MuiCard-root {
   background-color: ${paper} !important;
 }
-html[data-cd-theme="${theme.id}"] .MuiChip-root.MuiChip-header {
+${sel} .MuiChip-root.MuiChip-header {
   background-color: ${tagBg} !important;
 }
-html[data-cd-theme="${theme.id}"] .form-label,
-html[data-cd-theme="${theme.id}"] .MuiTableCell-head,
-html[data-cd-theme="${theme.id}"] .MuiTableCell-body,
-html[data-cd-theme="${theme.id}"] .form-value.primary.text {
+${sel} .form-label,
+${sel} .MuiTableCell-head,
+${sel} .MuiTableCell-body,
+${sel} .form-value.primary.text {
   color: ${labels} !important;
 }
-html[data-cd-theme="${theme.id}"] .gvt-icon.home,
-html[data-cd-theme="${theme.id}"] .gvt-icon.menu,
-html[data-cd-theme="${theme.id}"] .gvt-icon.home path,
-html[data-cd-theme="${theme.id}"] .gvt-icon.menu path,
-html[data-cd-theme="${theme.id}"] [data-testid="context-header"] .MuiToggleButton-root:not(.Mui-selected) .gvt-icon,
-html[data-cd-theme="${theme.id}"] [data-testid="context-header"] .MuiToggleButton-root:not(.Mui-selected) .gvt-icon path {
+${sel} .gvt-icon.home,
+${sel} .gvt-icon.menu,
+${sel} .gvt-icon.home path,
+${sel} .gvt-icon.menu path,
+${sel} [data-testid="context-header"] .MuiToggleButton-root:not(.Mui-selected) .gvt-icon,
+${sel} [data-testid="context-header"] .MuiToggleButton-root:not(.Mui-selected) .gvt-icon path {
   fill: ${theme.vars["--cd-icon-fill"] ?? fg} !important;
   color: ${theme.vars["--cd-icon-fill"] ?? fg} !important;
 }

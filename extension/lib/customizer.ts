@@ -7,32 +7,62 @@ import {
   hsvToHex,
   isHexColor,
   normalizeHex,
+  parsePaletteFile,
+  textContrastIssues,
   type ColorField,
 } from "./palette";
-import { THEMES, type ThemeId } from "./themes";
+import { slugify } from "./profiles";
+import { type ThemeDefinition } from "./themes";
 
 export const CUSTOMIZER_CSS = `
 .cd-customizer {
   font: 12px/1.35 Segoe UI, system-ui, sans-serif;
   color: #e8eaed;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+  height: 100%;
 }
 .cd-customizer h2 {
   margin: 0;
   font-size: 13px;
   font-weight: 650;
 }
+.cd-customizer-chrome {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 8px;
+}
 .cd-customizer-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-bottom: 8px;
+  min-width: 0;
 }
 .cd-customizer-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-shrink: 0;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+.cd-customizer-head h2 {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cd-body {
+  flex: 1;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-right: 4px;
 }
 .cd-customizer-actions button.cd-eyedrop-on {
   background: #01a982;
@@ -86,7 +116,7 @@ export const CUSTOMIZER_CSS = `
 .cd-popover {
   position: absolute;
   z-index: 3;
-  width: 220px;
+  width: 242px;
   padding: 8px;
   background: #2b2d31;
   border: 1px solid #5f6368;
@@ -185,20 +215,44 @@ export const CUSTOMIZER_CSS = `
   margin: 8px 0 0;
   color: #9aa0a6;
 }
+.cd-contrast {
+  margin: 8px 0 0;
+  color: #f0c840;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cd-contrast-item {
+  margin: 0;
+  line-height: 1.4;
+}
+.cd-contrast-apply {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 3px 8px;
+}
+.cd-contrast-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: 1px solid #5f6368;
+}
 `;
 
 export interface CustomizerHandle {
   root: HTMLElement;
-  refresh(id: ThemeId, vars: Record<string, string>): void;
+  refresh(theme: ThemeDefinition, vars: Record<string, string>): void;
   openField(fieldId: string): void;
   setEyedropActive(active: boolean): void;
 }
 
 function currentVars(
-  id: ThemeId,
+  theme: ThemeDefinition,
   overrides: Record<string, string>,
 ): Record<string, string> {
-  return { ...(THEMES[id].vars ?? {}), ...overrides };
+  return { ...(theme.vars ?? {}), ...overrides };
 }
 
 function setSwatch(button: HTMLButtonElement, hex: string) {
@@ -479,7 +533,7 @@ function openPicker(
 export function mountCustomizer(
   parent: HTMLElement,
   options: {
-    themeId: ThemeId;
+    theme: ThemeDefinition;
     overrides: Record<string, string>;
     onChange: (overrides: Record<string, string>) => void;
     onReset: () => void;
@@ -492,6 +546,8 @@ export function mountCustomizer(
   root.className = "cd-customizer";
   root.style.position = "relative";
 
+  const chrome = document.createElement("div");
+  chrome.className = "cd-customizer-chrome";
   const head = document.createElement("div");
   head.className = "cd-customizer-head";
   const title = document.createElement("h2");
@@ -501,6 +557,20 @@ export function mountCustomizer(
   reset.type = "button";
   reset.textContent = "Reset";
   actions.append(reset);
+  const exportBtn = document.createElement("button");
+  exportBtn.type = "button";
+  exportBtn.textContent = "Export";
+  exportBtn.title = "Download this theme’s color overrides as JSON";
+  actions.append(exportBtn);
+  const importBtn = document.createElement("button");
+  importBtn.type = "button";
+  importBtn.textContent = "Import";
+  importBtn.title = "Load color overrides from a JSON file";
+  const importInput = document.createElement("input");
+  importInput.type = "file";
+  importInput.accept = "application/json,.json";
+  importInput.hidden = true;
+  actions.append(importBtn, importInput);
   const eyedrop = document.createElement("button");
   eyedrop.type = "button";
   eyedrop.textContent = "Select";
@@ -516,19 +586,27 @@ export function mountCustomizer(
     close.addEventListener("click", options.onClose);
     actions.append(close);
   }
-  head.append(title, actions);
+  head.append(title);
+  chrome.append(head, actions);
 
+  const body = document.createElement("div");
+  body.className = "cd-body";
   const list = document.createElement("div");
   list.className = "cd-customizer-list";
   const note = document.createElement("p");
   note.className = "cd-note";
   if (options.note) note.textContent = options.note;
+  const contrast = document.createElement("div");
+  contrast.className = "cd-contrast";
+  contrast.hidden = true;
 
-  root.append(head, list);
-  if (options.note) root.append(note);
+  body.append(list);
+  if (options.note) body.append(note);
+  body.append(contrast);
+  root.append(chrome, body);
   parent.append(root);
 
-  let themeId = options.themeId;
+  let theme = options.theme;
   let overrides = { ...options.overrides };
   const controls = new Map<
     string,
@@ -536,7 +614,7 @@ export function mountCustomizer(
   >();
 
   const paintRows = () => {
-    const vars = currentVars(themeId, overrides);
+    const vars = currentVars(theme, overrides);
     for (const field of OVERLAY_COLOR_FIELDS) {
       const hex = fieldValue(vars, field);
       const pair = controls.get(field.id);
@@ -544,11 +622,38 @@ export function mountCustomizer(
       setSwatch(pair.swatch, hex);
       if (document.activeElement !== pair.hex) pair.hex.value = hex;
     }
+    const issues = textContrastIssues(vars, document);
+    contrast.replaceChildren();
+    contrast.hidden = issues.length === 0;
+    for (const issue of issues) {
+      const item = document.createElement("div");
+      item.className = "cd-contrast-item";
+      const surfaces = issue.pairs
+        .map(
+          (pair) =>
+            `${pair.surfaceLabel} ${pair.bg} at ${pair.ratio.toFixed(1)}:1`,
+        )
+        .join("; ");
+      const line = document.createElement("p");
+      line.className = "cd-contrast-item";
+      line.textContent = `${issue.fieldLabel} (${issue.fg}) is ${issue.usedFor}. Against ${surfaces}, it is under the 4.5:1 readability target.`;
+      const apply = document.createElement("button");
+      apply.type = "button";
+      apply.className = "cd-contrast-apply";
+      apply.dataset.fieldId = issue.fieldId;
+      apply.dataset.hex = issue.recommended;
+      const swatch = document.createElement("span");
+      swatch.className = "cd-contrast-swatch";
+      swatch.style.background = issue.recommended;
+      apply.append(swatch, document.createTextNode(`Try ${issue.recommended}`));
+      item.append(line, apply);
+      contrast.append(item);
+    }
   };
 
   const commitField = (field: ColorField, hex: string) => {
     if (!isHexColor(hex)) return;
-    const base = THEMES[themeId].vars ?? {};
+    const base = theme.vars ?? {};
     overrides = applyField({ ...base, ...overrides }, field, hex);
     const next: Record<string, string> = {};
     for (const [key, value] of Object.entries(overrides)) {
@@ -560,6 +665,16 @@ export function mountCustomizer(
     options.onChange(overrides);
     paintRows();
   };
+
+  contrast.addEventListener("click", (event) => {
+    const btn = (event.target as HTMLElement).closest<HTMLButtonElement>(
+      ".cd-contrast-apply",
+    );
+    if (!btn?.dataset.fieldId || !btn.dataset.hex) return;
+    const field = OVERLAY_COLOR_FIELDS.find((item) => item.id === btn.dataset.fieldId);
+    if (!field) return;
+    commitField(field, btn.dataset.hex);
+  });
 
   for (const field of OVERLAY_COLOR_FIELDS) {
     const row = document.createElement("div");
@@ -593,18 +708,58 @@ export function mountCustomizer(
     paintRows();
   });
 
-  const refresh = (id: ThemeId, nextOverrides: Record<string, string>) => {
-    themeId = id;
+  exportBtn.addEventListener("click", () => {
+    const blob = new Blob(
+      [
+        JSON.stringify(
+          {
+            centralThemes: 1,
+            name: theme.label,
+            theme: theme.id,
+            vars: currentVars(theme, overrides),
+            overrides,
+          },
+          null,
+          2,
+        ),
+      ],
+      { type: "application/json" },
+    );
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `central-themes-${slugify(theme.label)}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+  });
+
+  importBtn.addEventListener("click", () => importInput.click());
+  importInput.addEventListener("change", async () => {
+    const file = importInput.files?.[0];
+    importInput.value = "";
+    if (!file) return;
+    const raw = await file.text();
+    const parsed = parsePaletteFile(raw, theme.vars);
+    if (!parsed) return;
+    overrides = parsed.overrides;
+    options.onChange(overrides);
+    paintRows();
+  });
+
+  const refresh = (nextTheme: ThemeDefinition, nextOverrides: Record<string, string>) => {
+    theme = nextTheme;
     overrides = { ...nextOverrides };
-    title.textContent = canCustomize(id)
-      ? `Customize ${THEMES[id].label}`
-      : THEMES[id].label;
-    reset.disabled = !canCustomize(id);
-    list.style.display = canCustomize(id) ? "flex" : "none";
+    title.textContent = canCustomize(nextTheme)
+      ? `Customize Profile: ${nextTheme.label}`
+      : nextTheme.label;
+    reset.disabled = !canCustomize(nextTheme);
+    exportBtn.disabled = !canCustomize(nextTheme);
+    importBtn.disabled = !canCustomize(nextTheme);
+    list.style.display = canCustomize(nextTheme) ? "flex" : "none";
     paintRows();
   };
 
-  refresh(options.themeId, options.overrides);
+  refresh(options.theme, options.overrides);
   return {
     root,
     refresh,

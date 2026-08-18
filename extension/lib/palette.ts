@@ -1,8 +1,8 @@
-import { THEMES, type ThemeDefinition, type ThemeId } from "./themes";
+import { type ThemeDefinition } from "./themes";
 
 export const CD_OVERRIDES_STORAGE_KEY = "cd-overrides";
 
-export type ThemeOverrides = Partial<Record<ThemeId, Record<string, string>>>;
+export type ThemeOverrides = Record<string, Record<string, string>>;
 
 export interface ColorField {
   id: string;
@@ -133,8 +133,8 @@ export const OVERLAY_COLOR_FIELDS: ColorField[] = [
   },
 ];
 
-export function canCustomize(id: ThemeId): boolean {
-  return THEMES[id].kind === "overlay" && Boolean(THEMES[id].vars);
+export function canCustomize(theme: ThemeDefinition | null | undefined): boolean {
+  return Boolean(theme?.kind === "overlay" && theme.vars);
 }
 
 export function isHexColor(value: string): boolean {
@@ -143,6 +143,316 @@ export function isHexColor(value: string): boolean {
 
 export function normalizeHex(value: string): string {
   return value.trim().toLowerCase();
+}
+
+function srgbChannel(value: number): number {
+  const s = value / 255;
+  return s <= 0.03928 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
+}
+
+/** Relative luminance for a #rrggbb color (WCAG). */
+export function relativeLuminance(hex: string): number {
+  const h = normalizeHex(hex).slice(1);
+  const r = srgbChannel(Number.parseInt(h.slice(0, 2), 16));
+  const g = srgbChannel(Number.parseInt(h.slice(2, 4), 16));
+  const b = srgbChannel(Number.parseInt(h.slice(4, 6), 16));
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
+export function contrastRatio(a: string, b: string): number {
+  const l1 = relativeLuminance(a);
+  const l2 = relativeLuminance(b);
+  const hi = Math.max(l1, l2);
+  const lo = Math.min(l1, l2);
+  return (hi + 0.05) / (lo + 0.05);
+}
+
+const AA_NORMAL_TEXT = 4.5;
+
+export interface ContrastPair {
+  surfaceLabel: string;
+  bg: string;
+  ratio: number;
+}
+
+export interface ContrastIssue {
+  fieldId: string;
+  fieldLabel: string;
+  usedFor: string;
+  fg: string;
+  pairs: ContrastPair[];
+  recommended: string;
+}
+
+const TEXT2_SELECTOR = [
+  ".form-label",
+  ".MuiTableCell-head",
+  ".MuiTableCell-body",
+  ".form-value.primary.text",
+  ".ag-cell",
+  ".ag-header-cell",
+].join(", ");
+
+function mixHex(from: string, to: string, amount: number): string {
+  const a = normalizeHex(from).slice(1);
+  const b = normalizeHex(to).slice(1);
+  const mix = (offset: number) => {
+    const x = Number.parseInt(a.slice(offset, offset + 2), 16);
+    const y = Number.parseInt(b.slice(offset, offset + 2), 16);
+    return Math.round(x + (y - x) * amount)
+      .toString(16)
+      .padStart(2, "0");
+  };
+  return `#${mix(0)}${mix(2)}${mix(4)}`;
+}
+
+function meetsAa(fg: string, backgrounds: string[]): boolean {
+  return backgrounds.every((bg) => contrastRatio(fg, bg) >= AA_NORMAL_TEXT);
+}
+
+/** Closest mix of `fg` toward white or black that hits 4.5:1 on every background. */
+export function recommendForeground(fg: string, backgrounds: string[]): string {
+  const bgs = backgrounds.filter((bg) => isHexColor(bg));
+  if (!bgs.length || !isHexColor(fg)) return fg;
+  if (meetsAa(fg, bgs)) return normalizeHex(fg);
+  const avgLum =
+    bgs.reduce((sum, bg) => sum + relativeLuminance(bg), 0) / bgs.length;
+  const toward = avgLum < 0.5 ? "#ffffff" : "#000000";
+  const fallback = toward === "#ffffff" ? "#000000" : "#ffffff";
+  const target = meetsAa(toward, bgs)
+    ? toward
+    : meetsAa(fallback, bgs)
+      ? fallback
+      : toward;
+  let lo = 0;
+  let hi = 1;
+  let best = target;
+  for (let i = 0; i < 20; i++) {
+    const mid = (lo + hi) / 2;
+    const candidate = mixHex(fg, target, mid);
+    if (meetsAa(candidate, bgs)) {
+      best = candidate;
+      hi = mid;
+    } else {
+      lo = mid;
+    }
+  }
+  return normalizeHex(best);
+}
+
+function parseRgba(
+  css: string,
+): { r: number; g: number; b: number; a: number } | null {
+  const m = css.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/i);
+  if (!m) return null;
+  return {
+    r: Number(m[1]),
+    g: Number(m[2]),
+    b: Number(m[3]),
+    a: m[4] == null ? 1 : Number(m[4]),
+  };
+}
+
+function rgbToHex(r: number, g: number, b: number): string {
+  const h = (n: number) =>
+    Math.round(Math.min(255, Math.max(0, n)))
+      .toString(16)
+      .padStart(2, "0");
+  return `#${h(r)}${h(g)}${h(b)}`;
+}
+
+/** Walk ancestors and composite backgrounds (does not assume Page vs Cards). */
+export function opaqueBackgroundHex(el: Element): string | null {
+  const stack: Element[] = [];
+  let node: Element | null = el;
+  while (node) {
+    stack.push(node);
+    node = node.parentElement;
+  }
+  stack.reverse();
+  let r = 255;
+  let g = 255;
+  let b = 255;
+  let painted = false;
+  for (const item of stack) {
+    if (item.id === "central-dark-customizer-host") continue;
+    const color = parseRgba(getComputedStyle(item).backgroundColor);
+    if (!color || color.a < 0.04) continue;
+    r = color.r * color.a + r * (1 - color.a);
+    g = color.g * color.a + g * (1 - color.a);
+    b = color.b * color.a + b * (1 - color.a);
+    painted = true;
+  }
+  return painted ? rgbToHex(r, g, b) : null;
+}
+
+function isVisible(el: Element): boolean {
+  if (!(el instanceof HTMLElement)) return false;
+  const style = getComputedStyle(el);
+  if (style.display === "none" || style.visibility === "hidden") return false;
+  const box = el.getBoundingClientRect();
+  return box.width > 0 && box.height > 0;
+}
+
+function sampleBackgrounds(root: ParentNode, selector: string): string[] {
+  const found = new Set<string>();
+  const nodes = root.querySelectorAll(selector);
+  let seen = 0;
+  for (const el of nodes) {
+    if (seen >= 60) break;
+    if (el.closest("#central-dark-customizer-host")) continue;
+    if (!isVisible(el)) continue;
+    seen += 1;
+    const bg = opaqueBackgroundHex(el);
+    if (bg) found.add(normalizeHex(bg));
+  }
+  return [...found];
+}
+
+function nameSurface(bg: string, vars: Record<string, string>): string {
+  const page = vars["--background-default"];
+  const cards =
+    vars["--palette-background-paper"] ?? vars["--background-front"];
+  const tables = vars["--ag-background-color"];
+  const near = (token: string | undefined) =>
+    Boolean(token && isHexColor(token) && hexDistance(bg, token) <= 12);
+  if (near(cards)) return "Cards";
+  if (near(tables)) return "Tables";
+  if (near(page)) return "Page";
+  return `this background (${bg})`;
+}
+
+/**
+ * Contrast for text tokens against backgrounds actually under matching
+ * elements on the current page. No matches → no warning for that token.
+ */
+export function textContrastIssues(
+  vars: Record<string, string>,
+  root: ParentNode | null = typeof document === "undefined" ? null : document,
+): ContrastIssue[] {
+  if (!root) return [];
+  const text = vars["--text-default"];
+  const text2 = vars["--palette-text-secondary"];
+  const textBackgrounds = new Set<string>();
+  if (isHexColor(text ?? "")) {
+    const fg = normalizeHex(text as string);
+    const candidates = root.querySelectorAll(
+      "p, span, li, h1, h2, h3, h4, .MuiTypography-root, .form-value",
+    );
+    let seen = 0;
+    for (const el of candidates) {
+      if (seen >= 80) break;
+      if (el.closest("#central-dark-customizer-host")) continue;
+      if (el.closest(TEXT2_SELECTOR)) continue;
+      if (!isVisible(el)) continue;
+      const color = cssColorToHex(getComputedStyle(el).color);
+      if (!color || hexDistance(color, fg) > 14) continue;
+      seen += 1;
+      const bg = opaqueBackgroundHex(el);
+      if (bg) textBackgrounds.add(normalizeHex(bg));
+    }
+  }
+  const checks: {
+    fieldId: string;
+    fieldLabel: string;
+    usedFor: string;
+    fg: string | undefined;
+    backgrounds: string[];
+  }[] = [
+    {
+      fieldId: "text2",
+      fieldLabel: "Text 2",
+      usedFor: "labels and table cells on this page",
+      fg: text2,
+      backgrounds: sampleBackgrounds(root, TEXT2_SELECTOR),
+    },
+    {
+      fieldId: "text",
+      fieldLabel: "Text",
+      usedFor: "body text on this page",
+      fg: text,
+      backgrounds: [...textBackgrounds],
+    },
+  ];
+
+  const issues: ContrastIssue[] = [];
+  for (const check of checks) {
+    if (!check.fg || !isHexColor(check.fg) || !check.backgrounds.length) continue;
+    const fg = normalizeHex(check.fg);
+    const pairs: ContrastPair[] = [];
+    for (const bg of check.backgrounds) {
+      const ratio = contrastRatio(fg, bg);
+      if (ratio < AA_NORMAL_TEXT) {
+        pairs.push({
+          surfaceLabel: nameSurface(bg, vars),
+          bg,
+          ratio,
+        });
+      }
+    }
+    if (!pairs.length) continue;
+    issues.push({
+      fieldId: check.fieldId,
+      fieldLabel: check.fieldLabel,
+      usedFor: check.usedFor,
+      fg,
+      pairs,
+      recommended: recommendForeground(fg, check.backgrounds),
+    });
+  }
+  return issues;
+}
+
+export function sanitizeOverrides(
+  vars: Record<string, string> | undefined,
+  incoming: Record<string, unknown>,
+): Record<string, string> {
+  if (!vars) return {};
+  const next: Record<string, string> = {};
+  for (const [key, value] of Object.entries(incoming)) {
+    if (key in vars && typeof value === "string" && isHexColor(value)) {
+      next[key] = normalizeHex(value);
+    }
+  }
+  return next;
+}
+
+export function parsePaletteFile(
+  raw: string,
+  allowedVars: Record<string, string> | undefined,
+): { name?: string; overrides: Record<string, string> } | null {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    return null;
+  }
+  if (!parsed || typeof parsed !== "object") return null;
+  const body = parsed as {
+    overrides?: unknown;
+    vars?: unknown;
+    colors?: unknown;
+    name?: unknown;
+    profile?: unknown;
+    theme?: unknown;
+  };
+  const source =
+    body.overrides && typeof body.overrides === "object" &&
+    Object.keys(body.overrides as object).length > 0
+      ? (body.overrides as Record<string, unknown>)
+      : body.vars && typeof body.vars === "object"
+        ? (body.vars as Record<string, unknown>)
+        : body.colors && typeof (parsed as { colors?: unknown }).colors === "object"
+          ? ((parsed as { colors: Record<string, unknown> }).colors)
+        : (parsed as Record<string, unknown>);
+  const overrides = sanitizeOverrides(allowedVars, source);
+  const name =
+    typeof body.name === "string"
+      ? body.name.trim()
+      : typeof body.profile === "string"
+        ? body.profile.trim()
+        : "";
+  return { overrides, name: name || undefined };
 }
 
 export function fieldValue(
@@ -170,10 +480,9 @@ export function applyField(
 }
 
 export function mergeTheme(
-  id: ThemeId,
+  theme: ThemeDefinition,
   overrides?: Record<string, string> | null,
 ): ThemeDefinition {
-  const theme = THEMES[id];
   if (!theme.vars || !overrides) return theme;
   const vars = { ...theme.vars };
   const secondary = overrides["--palette-text-secondary"];
@@ -196,7 +505,7 @@ export function mergeTheme(
 
 export function overridesFor(
   all: ThemeOverrides | null | undefined,
-  id: ThemeId,
+  id: string,
 ): Record<string, string> {
   return all?.[id] ?? {};
 }

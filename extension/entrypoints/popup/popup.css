@@ -21,10 +21,49 @@ main {
   padding: 14px 16px 16px;
 }
 
-h1 {
-  margin: 0 0 4px;
+.popup-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.popup-head h1 {
+  margin: 0;
   font-size: 15px;
   font-weight: 650;
+}
+
+.popup-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.version {
+  font-size: 11px;
+  color: #80868b;
+  font-variant-numeric: tabular-nums;
+}
+
+.status {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #5f6368;
+}
+
+.status-red {
+  background: #d93025;
+}
+
+.status-yellow {
+  background: #f0c840;
+}
+
+.status-green {
+  background: #34a853;
 }
 
 label {
@@ -76,4 +115,102 @@ select {
 
 .notice {
   color: #f0c840;
+}
+
+.create-row {
+  display: flex;
+  gap: 8px;
+}
+
+.create-row[hidden] {
+  display: none;
+}
+
+#profile-name {
+  flex: 1;
+  font: inherit;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #3c4043;
+  background: #2b2d31;
+  color: inherit;
+}
+
+#create-profile,
+#cancel-create {
+  font: inherit;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #3c4043;
+  background: #2b2d31;
+  color: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.profile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.profile-list[hidden] {
+  display: none;
+}
+
+.profile-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.profile-row button.profile-pick {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  font: inherit;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile-row button.profile-pick:hover {
+  background: #2b2d31;
+}
+
+.profile-row.is-current button.profile-pick {
+  border-color: #3c4043;
+  background: #2b2d31;
+}
+
+.profile-row .trash {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #9aa0a6;
+  cursor: pointer;
+}
+
+.profile-row .trash:hover {
+  color: #f28b82;
+  border-color: #5f6368;
+  background: #2b2d31;
+}
+
+.profile-row .trash svg {
+  display: block;
 }
